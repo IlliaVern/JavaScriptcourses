@@ -5,13 +5,17 @@
 let position = prompt("1. Веселий\n2. Сумний\n3. Обурений\nВведіть пункт меню")
 
 switch (position) {
-    case "1": document.write("&#x1f603;")
+    case "1":
+        document.write("&#x1f603;")
         break;
-    case "2": document.write("&#x1f614;")
+    case "2":
+        document.write("&#x1f614;")
         break;
-    case "3": document.write("&#x1f620;")
+    case "3":
+        document.write("&#x1f620;")
         break;
-    default: document.write("Невірний пункт меню")
+    default:
+        document.write("Невірний пункт меню")
         break;
 }
 
@@ -33,15 +37,17 @@ document.write(`Загадане число = ${number}`);
 
 // Task 1.1
 
-let beginInterval = Math.floor(Math.random()*100)+1,
-    endInterval = Math.floor(Math.random()*100)+1,
+let beginInterval = Math.floor(Math.random() * 100) + 1,
+    endInterval = Math.floor(Math.random() * 100) + 1,
     number = parseInt(prompt("Enter your number"));
 
-if (beginInterval > endInterval) 
-alert("Wrong interval randomized!!!"); else 
-if (number >= beginInterval-10 && number <= endInterval+10) 
-alert(`Ви виграли!!!`); else 
-alert(`Ви програли(((`)
+if (beginInterval > endInterval)
+    alert("Wrong interval randomized!!!");
+else
+if (number >= beginInterval - 10 && number <= endInterval + 10)
+    alert(`Ви виграли!!!`);
+else
+    alert(`Ви програли(((`)
 
 document.write(`Початок проміжку ${beginInterval} кінець проміжку ${endInterval}`)
 
@@ -54,7 +60,7 @@ let number = Math.floor(Math.random() * 10) + 1,
 if (Math.abs(number - user1Answear) < Math.abs(number - user2Answear))
     alert("Виграв перший користувач");
 else if (user1Answear != user2Answear)
-    alert("Виграв другий користувач"); 
+    alert("Виграв другий користувач");
 else alert("Введено однакові числа!!!");
 document.write(`Загадане число ${number}! число 1-го користувача - ${user1Answear}; число 2-го користувача - ${user2Answear}`)
 
@@ -66,29 +72,32 @@ document.write(`Загадане число ${number}! число 1-го кор�
 
 // Task 5
 
-let bal1 = 0,
-    bal2 = 0,
+let bal1,
+    bal2,
     number1 = Math.floor(Math.random() * 12) + 1,
     number2 = Math.floor(Math.random() * 12) + 1;
 
-if (window.confirm("Перший гравець кинув " + number1 + " Кинути другий раз?"))
+bal1 = number1 % 2 == 0 ? number1 : -number1
+bal2 = number2 % 2 == 0 ? number2 : -number2
+
+if (window.confirm("Перший гравець кинув " + number1 + " Кинути другий раз?")) {
     number1 = Math.floor(Math.random() * 12) + 1
-if (window.confirm("Другий гравець кинув " + number2 + " Кинути другий раз?"))
+    bal1 += number1 % 2 == 0 ? number1 : -number1
+    document.write(`<br>Перший гравець з 2-го разу кинув ${number1}`)
+}
+
+if (window.confirm("Другий гравець кинув " + number2 + " Кинути другий раз?")) {
     number2 = Math.floor(Math.random() * 12) + 1
-
-if (number1 % 2 == 0) bal1 += number1;
-else bal1 -= number1
-
-if (number2 % 2 == 0) bal2 += number2;
-else bal2 -= number2
+    bal2 += number2 % 2 == 0 ? number2 : -number2
+    document.write(`<br>Другий гравець з 2-го разу кинув ${number2}<br>`)
+}
 
 if (bal1 > bal2)
     document.write('Виграв перший гравець');
 else
     document.write('Виграв другий гравець');
 
-document.write(`<br>Перший гравець викинув ${number1}<br>Другий гравець викинув ${number2}`)
-
+document.write(`<br>Перший гравець має ${bal1} балів. Другий гравець має ${bal2} балів`)
 
 
 // 1.1. Найбільше серед двох різних замінити на 0.
@@ -96,8 +105,11 @@ document.write(`<br>Перший гравець викинув ${number1}<br>Д�
 let a = parseInt(prompt("Fisrt number")),
     b = parseInt(prompt("Second number"));
 
-if (a > b) 
-a = 0; else {b = 0};
+if (a > b)
+    a = 0;
+else {
+    b = 0
+};
 
 alert(`First number = ${a} second number = ${b}`);
 
@@ -106,10 +118,14 @@ alert(`First number = ${a} second number = ${b}`);
 let a = parseInt(prompt("Fisrt number")),
     b = parseInt(prompt("Second number"));
 
-if (a == b) 
-a=b=1; else {
-if (a > b) 
-a = 0; else {b = 0};
+if (a == b)
+    a = b = 1;
+else {
+    if (a > b)
+        a = 0;
+    else {
+        b = 0
+    };
 }
 
 alert(`First number = ${a} second number = ${b}`);
