@@ -49,7 +49,7 @@ if (number >= beginInterval - 10 && number <= endInterval + 10)
 else
     alert(`Ви програли(((`)
 
-document.write(`Початок проміжку ${beginInterval} кінець проміжку ${endInterval}`)
+document.write(`Початок проміжку ${beginInterval}, ваше число ${number}, кінець проміжку ${endInterval}`)
 
 // Task 2
 
@@ -66,6 +66,30 @@ document.write(`Загадане число ${number}! число 1-го кор�
 
 // Task 3
 
+let squareAmount = parseInt(prompt("Введіть кількість квадратів")),
+    shipPosition = Math.floor(Math.random() * squareAmount) + 1,
+    shot1 = parseInt(prompt("Введіть номер клітинки для 1-го пострілу"));
+var shot2;
+
+if (shipPosition == shot1)
+    alert("Корабель потоплено!!!");
+else {
+    if (shipPosition == (shot1 + 1) || shipPosition == (shot1 - 1)) {
+        alert("Корабель пошкоджено")
+        shot2 = parseInt(prompt("Введіть номер клітинки для 2-го пострілу"))
+        if (shipPosition == shot2)
+            alert("Корабель потоплено!!!");
+        else alert("Ви не влучили АЛЕ корабель пошкоджено")
+    } else {
+        shot2 = parseInt(prompt("Введіть номер клітинки для 2-го пострілу"))
+        if (shipPosition == shot2)
+            alert("Корабель потоплено!!!");
+        else if (shipPosition == (shot2 + 1) || shipPosition == (shot2 - 1))
+            alert("Ви не влучили АЛЕ корабель пошкоджено");
+        else alert("Ви не влучили")
+    }
+}
+document.write(`Корабель знаходився у ${shipPosition} клітинці`)
 
 // Task 4
 
