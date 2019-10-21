@@ -22,12 +22,12 @@ switch (position) {
 // Task 1
 
 let number = Math.floor(Math.random() * 5) + 1,
-    answear = parseInt(prompt("Введіть загадане число"));
+    answear = parseInt(prompt("Введіть загадане число")); 
 
 if (answear == number)
     alert(`Ви вгадали`)
 else {
-    let answear = parseInt(prompt("Введіть загадане число"))
+    let answear = parseInt(prompt("Введіть загадане число"))  Змінну описана вище,  тут уже не потрібно
     if (answear == number)
         alert(`Ви вгадали`)
     else
