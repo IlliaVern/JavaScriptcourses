@@ -27,7 +27,7 @@ let number = Math.floor(Math.random() * 5) + 1,
 if (answear == number)
     alert(`Ви вгадали`)
 else {
-    let answear = parseInt(prompt("Введіть загадане число"))  Змінну описана вище,  тут уже не потрібно
+    answear = parseInt(prompt("Введіть загадане число"))
     if (answear == number)
         alert(`Ви вгадали`)
     else
