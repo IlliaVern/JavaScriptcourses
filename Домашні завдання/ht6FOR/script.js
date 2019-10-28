@@ -62,3 +62,22 @@ for (let i = 0; i < 3; i++) {
         document.write(`<br>`)
     }
 }
+
+// 5. Інвестор вклав s тис. грн.. на 20 років під 20% річних. 
+// Визначити за допомогою циклів суму, яку він одержить (без оподаткування).
+
+let s=Math.floor(prompt("Enter your deposit in тис. грн."))
+for (let i = 0; i < 20; i++) {
+    s=s+s*0.2
+}
+document.write(`Finish sum=${Math.floor(s)}`)
+
+// 6. Інвестор вклав s тис. грн.. на 20 років під 20% річних, податок складає 5% від суми прибутку. 
+// Визначити за допомогою циклів суму, яку він одержить.
+
+let s=Math.floor(prompt("Enter your deposit in тис. грн."))
+for (let i = 0; i < 20; i++) {
+    s=s+(s*0.2)*0.95
+}
+document.write(`Finish sum=${Math.floor(s)}`)
+
