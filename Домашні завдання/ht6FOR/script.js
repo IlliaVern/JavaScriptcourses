@@ -81,3 +81,14 @@ for (let i = 0; i < 20; i++) {
 }
 document.write(`Finish sum=${Math.floor(s)}`)
 
+// 7. Інвестор вклав s тис. грн.. на 20 років під 20% річних а потім на 17 років під 27% річних. 
+// Визначити за допомогою циклів суму, яку він одержить.
+
+let s=Math.floor(prompt("Enter your deposit in тис. грн."))
+for (let i = 0; i < 20; i++) {
+    s=s+s*0.2
+}
+for (let j = 0; j < 17; j++) {
+    s=s+s*0.27
+}
+document.write(`Finish sum=${Math.floor(s)}`)
