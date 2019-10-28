@@ -92,3 +92,28 @@ for (let j = 0; j < 17; j++) {
     s=s+s*0.27
 }
 document.write(`Finish sum=${Math.floor(s)}`)
+
+// 8. Вивести на екран послідовність символів
+// а о а о а о а о а о …
+// Всього символів 82.
+
+for (let i = 0; i < 41; i++) {
+    document.write(`ao`)
+}
+
+// 9. Вивести на екран 
+//1 1
+// 2 1 2
+// 3 1 2 3
+// 4 1 2 3 4
+// …
+// I 1 2 3 ..i
+// 23 1 2 3 .. 22 23
+
+for (let i = 1; i <= 23; i++) {
+    for (let j = 1; j <= i ; j++) {
+        document.write(`${j}`)
+    }
+    document.write(`<br>`)
+}
+
