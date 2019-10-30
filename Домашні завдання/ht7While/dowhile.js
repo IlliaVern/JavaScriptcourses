@@ -11,7 +11,7 @@
 
 // 2.З клавіатури вводитяться числа поки не буде введено 0. Знайти добуток чисел.
 
-let product = parseInt(prompt(`Введіть число`))
+let product = 1
 do {
     var num = parseInt(prompt(`Введіть число`))
         product*=num
