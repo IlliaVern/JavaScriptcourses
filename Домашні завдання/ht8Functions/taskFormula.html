@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task 1</title>
+</head>
+
+<body>
+    <h3>Обчислити значення виразу</h3> <br />
+    <img src="./taskFormula.jpg" alt="Вираз"> <br />
+
+    <label for="a">Значення а</label>
+    <input type="number" id="a"> <br />
+    <label for="b">Значення b</label>
+    <input type="number" id="b"> <br />
+    <label for="c">Значення c</label>
+    <input type="number" id="c"> <br />
+    <button id="startBtn">
+        Розрахувати значення S
+    </button>
+    <label for="S">S=</label>
+    <input type="number" id="S">
+
+    <script>
+        function getMax(num1, num2, num3) {
+            if (num1 > num2 && num1 > num3)
+                return num1
+            else 
+                if (num2 > num1 && num2 > num3)
+                    return num2
+                else return num3
+            }
+
+        document.getElementById("startBtn").onclick = function () {
+            let a = parseFloat(document.getElementById("a").value)
+            let b = parseFloat(document.getElementById("b").value)
+            let c = parseFloat(document.getElementById("c").value)
+
+            let S = getMax(a, -b, 3) * getMax(a, 2*b, c) - getMax(-a, b, 7)
+            document.getElementById("S").value = S
+        }
+    </script>
+
+</body>
+
+</html>

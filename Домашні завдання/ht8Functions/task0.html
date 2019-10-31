@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task0</title>
+</head>
+
+<body>
+    <h5>Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.</h5>
+    <script>
+        let month = parseInt(prompt("Month"))
+
+        function poraRoku(month) {
+            switch (month) {
+                case 1:
+                case 2:
+                case 12:
+                    document.write("Winter")
+                    break
+                case 3:
+                case 4:
+                case 5:
+                    document.write("Spring")
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    document.write("Summer")
+                    break
+                case 9:
+                case 10:
+                case 11:
+                    document.write("Fall")
+                    break
+                default:
+                    document.write("Wrong month")
+                    break;
+            }
+        }
+            let sezon = poraRoku(month)
+            document.write(`${sezon}`)
+    </script>
+
+</body>
+
+</html>
