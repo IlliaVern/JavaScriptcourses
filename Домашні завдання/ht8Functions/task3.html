@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 3</title>
+</head>
+
+<body>
+    <h3>
+        <pre>Задача 3. Створити окремі функції, які для 4 чисел знаходять:
+        1)суму;
+        2)добуток;
+        3)середнє арифметичне;
+        4)мінімальне значення.</pre>
+    </h3> <br />
+
+    <label for="num1">Значення 1-го числа</label>
+    <input type="number" id="num1"> <br />
+    <label for="num2">Значення 2-го числа</label>
+    <input type="number" id="num2"> <br />
+    <label for="num3">Значення 3-го числа</label>
+    <input type="number" id="num3"> <br />
+    <label for="num4">Значення 4-го числа</label>
+    <input type="number" id="num4"> <br />
+
+    <button id="sumBtn">Сума</button>
+    <label for="sum">=</label>
+    <input type="number" id="sum"> <br />
+
+    <button id="prodBtn">Добуток</button>
+    <label for="prod">=</label>
+    <input type="number" id="prod"> <br />
+
+    <button id="serArifmBtn">Середнє арифметичне</button>
+    <label for="serArifm">=</label>
+    <input type="number" id="serArifm"> <br />
+
+    <button id="minBtn">Мінімальне значення</button>
+    <label for="minBtn">=</label>
+    <input type="number" id="minBtn"> <br />
+
+    <script>
+        function getSum(num1, num2, num3, num4) {
+            return num1 + num2 + num3 + num4
+        }
+
+        function getProd(num1, num2, num3, num4) {
+            return num1 * num2 * num3 * num4
+        }
+
+        function getSerArifm(num1, num2, num3, num4) {
+            return (num1 + num2 + num3 + num4) / 4
+        }
+
+        function getMin(num1, num2, num3, num4) {
+            if (num1 < num2 && num1 < num3 && num1 < num4)
+                return num1
+            else
+            if (num2 < num1 && num2 < num3 && num2 < num4)
+                return num2
+            else if (num3 < num1 && num3 < num2 && num3 < num4)
+                return num3
+            else return num4
+        }
+
+        document.getElementById("sumBtn").onclick = function () {
+            let num1 = parseFloat(document.getElementById("num1").value)
+            let num2 = parseFloat(document.getElementById("num2").value)
+            let num3 = parseFloat(document.getElementById("num3").value)
+            let num4 = parseFloat(document.getElementById("num4").value)
+            document.getElementById("sum").value = getSum(num1, num2, num3, num4)
+        }
+
+        document.getElementById("prodBtn").onclick = function () {
+            let num1 = parseFloat(document.getElementById("num1").value)
+            let num2 = parseFloat(document.getElementById("num2").value)
+            let num3 = parseFloat(document.getElementById("num3").value)
+            let num4 = parseFloat(document.getElementById("num4").value)
+            document.getElementById("prod").value = getProd(num1, num2, num3, num4)
+        }
+
+        document.getElementById("serArifmBtn").onclick = function () {
+            let num1 = parseFloat(document.getElementById("num1").value)
+            let num2 = parseFloat(document.getElementById("num2").value)
+            let num3 = parseFloat(document.getElementById("num3").value)
+            let num4 = parseFloat(document.getElementById("num4").value)
+            document.getElementById("serArifm").value = getSerArifm(num1, num2, num3, num4)
+        }
+
+        document.getElementById("minBtn").onclick = function () {
+            let num1 = parseFloat(document.getElementById("num1").value)
+            let num2 = parseFloat(document.getElementById("num2").value)
+            let num3 = parseFloat(document.getElementById("num3").value)
+            let num4 = parseFloat(document.getElementById("num4").value)
+            document.getElementById("min").value = getMin(num1, num2, num3, num4)
+        }
+    </script>
+
+</body>
+
+</html>
