@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task1</title>
+</head>
+
+<body>
+    <h4>Задача 1. Створити функцію, яка за номером місяця повертає його назву.</h4>
+    <script>
+        let monthNumber = parseInt(prompt("Enter month number"))
+
+        function poraRoku(monthNumber) {
+            if (monthNumber == 1) return "Січень"
+            if (monthNumber == 2) return "Лютий"
+            if (monthNumber == 3) return "Березень"
+            if (monthNumber == 4) return "Квітень"
+            if (monthNumber == 5) return "Травень"
+            if (monthNumber == 6) return "Червень"
+            if (monthNumber == 7) return "Липень"
+            if (monthNumber == 8) return "Серпень"
+            if (monthNumber == 9) return "Вересень"
+            if (monthNumber == 10) return "Жовтень"
+            if (monthNumber == 11) return "Листопад"
+            if (monthNumber == 12) return "Грудень"
+            else return "Wrong month number"
+            }
+
+            let monthName = poraRoku(monthNumber)
+            document.write(`${monthName}`)
+    </script>
+
+</body>
+
+</html>
