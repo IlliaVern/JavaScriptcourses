@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 5</title>
+</head>
+
+<body>
+    <h3>Задача 5. Створити функції, які переводять:<br />
+        1) Сантиметри у дюйми;<br />
+        2) Кілограми у фунти;<br />
+        3) Кілометри у милі.</h3> <br />
+
+    <input type="number" id="sant">
+    <label for="sant">сантиметрів</label>
+    <button id="inchBtn">=</button>
+    <input type="number" id="inch">
+    <label for="inch">дюймів</label><br />
+
+    <input type="number" id="kg">
+    <label for="kg">кілограм</label>
+    <button id="poundBtn">=</button>
+    <input type="number" id="pound">
+    <label for="pound">фунтів</label><br />
+
+    <input type="number" id="km">
+    <label for="km">кілометрів</label>
+    <button id="mileBtn">=</button>
+    <input type="number" id="mile">
+    <label for="mile">миль</label><br />
+
+
+    <script>
+        function getInch(sant) {
+            return sant / 2.54
+        }
+
+        function getPound(kg) {
+            return kg * 2.205
+        }
+
+        function getMile(km) {
+            return km / 1.609
+        }
+
+        document.getElementById("inchBtn").onclick = function () {
+            let sant = parseFloat(document.getElementById("sant").value)
+            document.getElementById("inch").value = getInch(sant).toFixed(2)
+        }
+
+        document.getElementById("poundBtn").onclick = function () {
+            let kg = parseFloat(document.getElementById("kg").value)
+            document.getElementById("pound").value = getPound(kg).toFixed(2)
+        }
+
+        document.getElementById("mileBtn").onclick = function () {
+            let km = parseFloat(document.getElementById("km").value)
+            document.getElementById("mile").value = getMile(km).toFixed(2)
+        }
+    </script>
+
+</body>
+
+</html>
