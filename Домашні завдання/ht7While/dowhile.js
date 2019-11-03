@@ -14,6 +14,6 @@ document.write(`Сума введених чисел=${sum}`)
 let product = 1
 do {
     var num = parseInt(prompt(`Введіть число`))
-        product*=num
+        product*=num  Перш ніж множити треба перевірити чи не 0
     } while (num !== 0)
     document.write(`Добуток введених чисел=${product}`)
