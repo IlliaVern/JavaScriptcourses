@@ -40,7 +40,7 @@
 
     <button id="minBtn">Мінімальне значення</button>
     <label for="minBtn">=</label>
-    <input type="number" id="minBtn"> <br />
+    <input type="number" id="min"> <br />
 
     <script>
         function getSum(num1, num2, num3, num4) {
@@ -61,7 +61,8 @@
             else
             if (num2 < num1 && num2 < num3 && num2 < num4)
                 return num2
-            else if (num3 < num1 && num3 < num2 && num3 < num4)
+            else
+            if (num3 < num1 && num3 < num2 && num3 < num4)
                 return num3
             else return num4
         }
