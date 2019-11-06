@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 1</title>
+</head>
+
+<body>
+    <!-- 1. Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він
+        відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є
+        хоча би одна трійка)). -->
+
+    <script>
+        let k = parseInt(prompt("Введіть кількість предметів")),
+            sumMarks = 0,
+            marks = [];
+        for (let i = 0; i < k; i++) {
+            let el = parseInt(prompt(`Введіть оцінку від 2 до 5 з ${i+1}-го предмета`))
+            marks.push(el)
+        }
+        document.write(marks)
+        for (let i = 0; i < marks.length; i++) {
+            sumMarks += marks[i]
+        }
+        let middleMark = sumMarks / k
+        let mark2 = 0,
+            mark3 = 0,
+            mark5 = 0;
+        for (let i = 0; i < marks.length; i++) {
+            if (marks[i] == 2) mark2++
+            if (marks[i] == 3) mark3++
+            if (marks[i] == 5) mark5++
+        }
+        if (mark5 == k) {
+            document.write(`Відмінник!!!`)
+        } else if (mark2 > 0) {
+            document.write(`Двійочник`)
+        } else if (mark2 == 0 && mark3 > 0) {
+            document.write(`Трійочник!`)
+        } else document.write(`Хорошист!!`)
+    </script>
+
+</body>
+
+</html>
