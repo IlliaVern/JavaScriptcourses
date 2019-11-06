@@ -15,32 +15,44 @@
 
     <script>
         let k = parseInt(prompt("Введіть кількість предметів")),
-            sumMarks = 0,
             marks = [];
         for (let i = 0; i < k; i++) {
-            let el = parseInt(prompt(`Введіть оцінку від 2 до 5 з ${i+1}-го предмета`))
+            let el = parseInt(prompt(`Введіть оцінку від 1 до 12 з ${i+1}-го предмета`))
             marks.push(el)
         }
-        document.write(marks)
-        for (let i = 0; i < marks.length; i++) {
-            sumMarks += marks[i]
+        function getAvarage(marks) {
+            let sum = 0
+            for (let i = 0; i < marks.length; i++) {
+                sum += marks[i]
+            }
+            return sum/marks.length
         }
-        let middleMark = sumMarks / k
-        let mark2 = 0,
-            mark3 = 0,
-            mark5 = 0;
-        for (let i = 0; i < marks.length; i++) {
-            if (marks[i] == 2) mark2++
-            if (marks[i] == 3) mark3++
-            if (marks[i] == 5) mark5++
+
+        function getCategory(marks) {
+            let minMark = marks[0]
+            for (let i = 1; i < marks.length; i++) {
+                if (marks[i] < minMark)
+                    minMark = marks[i]
+            }
+            switch (minMark) {
+                case 1:
+                case 2:
+                case 3: return 'Двійочник'
+                case 4:
+                case 5:
+                case 6: return 'Трійочник'
+                case 7:
+                case 8:
+                case 9: return 'Хорошист'
+                case 10:
+                case 11:
+                case 12: return 'Відминник'
+                default: return 'Помилка'
+            }            
         }
-        if (mark5 == k) {
-            document.write(`Відмінник!!!`)
-        } else if (mark2 > 0) {
-            document.write(`Двійочник`)
-        } else if (mark2 == 0 && mark3 > 0) {
-            document.write(`Трійочник!`)
-        } else document.write(`Хорошист!!`)
+
+document.write(`Average: ${getAvarage(marks).toFixed(2)} <br>
+                Category: ${getCategory(marks)}`)
     </script>
 
 </body>
