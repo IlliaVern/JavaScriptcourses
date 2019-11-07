@@ -12,11 +12,9 @@
     <!-- 3. Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван». -->
 
     <script>
-        let studentsAmount = parseInt(prompt("Введіть кількість учнів у класі")),
-            studentsNames = [];
-        for (let i = 0; i < studentsAmount; i++) {
-            let el = prompt(`Введіть ім'я учня`)
-            studentsNames.push(el)
+        function getStudentNames() {
+            let studentsNames = prompt("Введіть імена учнів у класі розділені ОДНИМ пробілом").split(' ')
+            return studentsNames
         }
 
         function getIvanCount(studentsNames) {
@@ -27,6 +25,7 @@
             }
             return ivanCount
         }
+        let studentsNames = getStudentNames()
         document.write(
             `Введений масив імен учнів: ${studentsNames}<br>
             Серед введеного масиву учнів ім'я Іван зустрічається ${getIvanCount(studentsNames)} разів`
