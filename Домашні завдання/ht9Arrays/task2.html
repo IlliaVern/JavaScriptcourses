@@ -12,7 +12,7 @@
     <!-- 2. Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран:
 •	номери днів, протягом яких кількість відвідувачів була меншою за 20;
 •	номери днів, коли кількість відвідувачів була мінімальною;
-•	номери днів, коли кількість відвідувачів була мінімальною;
+•	номери днів, коли кількість відвідувачів була максимальною;
 •	загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних. -->
     <script>
         let visitors = []
@@ -20,28 +20,60 @@
             let el = parseInt(prompt(`Введіть кількість відвідувачів у ${i+1}-й день`))
             visitors.push(el)
         }
-        document.write(visitors)
-
-        let min = Math.min(visitors),
-            minDay=1,
-            maxDay=1,
-            max = Math.max(visitors);
-document.write(`Days with visitors under 20: `)
-for (let i = 0; i < visitors.length; i++) {
-    if (visitors[i]<20) document.write(`${i+1} `)
-    }
-        for (let i = 0; i < visitors.length; i++) {
-            if (visitors[i] <= min) {
-                min = visitors[i]
-                minDay = i + 1
+        function getDayLess20(visitors) {
+            let dayLess20 = []
+            for (let i = 0; i < visitors.length; i++) {
+                if (visitors[i] < 20) {
+                    dayLess20.push(i + 1)
+                }
             }
-            if (visitors[i] >= max) {
-                max = visitors[i]
-                maxDay = i + 1
-            }
+            return dayLess20
         }
-        document.write(`Minimum visitors day: ${minDay}, maximum visitors das: ${maxDay}`)
+        function getMinVisitorsDay(visitors) {
+            let minVisitorsDay = visitors[0],
+                minVisDayNum = 0
+            for (let i = 0; i < visitors.length; i++) {
+                if (visitors[i] < minVisitorsDay) {
+                    minVisitorsDay = visitors[i]
+                    minVisDayNum = i + 1
+                }
+            }
+            return minVisDayNum
+        }
+        function getMaxVisitorsDay(visitors) {
+            let maxVisitorsDay = visitors[0],
+                maxVisDayNum = 0
+            for (let i = 0; i < visitors.length; i++) {
+                if (visitors[i] > maxVisitorsDay) {
+                    maxVisitorsDay = visitors[i]
+                    maxVisDayNum = i + 1
+                }
+            }
+            return maxVisDayNum
+        }
+        function getWorkDaysVisitors(visitors) {
+            let workDaysVisitors = 0
+            for (let i = 0; i < 5; i++) {
+                workDaysVisitors += visitors[i]
+            }
+            return workDaysVisitors
+        }
 
+        function getHolidayDaysVisitors(visitors) {
+            let holidayDaysVisitors = 0
+            for (let i = 5; i < visitors.length; i++) {
+                holidayDaysVisitors += visitors[i]
+            }
+            return holidayDaysVisitors
+        }
+
+        document.write(`
+        Amount visitors per day: ${visitors} <br> 
+        days with amount visitors less than 20: ${getDayLess20(visitors)} <br>
+        minimum visitors day: ${getMinVisitorsDay(visitors)}, maximum visitors day: ${getMaxVisitorsDay(visitors)},<br>
+        visitors on workind days = ${getWorkDaysVisitors(visitors)}, 
+        visitors on holiday days = ${getHolidayDaysVisitors(visitors)}
+            `)
     </script>
 
 </body>
