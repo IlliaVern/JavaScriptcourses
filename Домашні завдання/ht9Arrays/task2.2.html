@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task2.2</title>
+</head>
+
+<body>
+    <!-- Задача 2. Дано послідовність оцінок учня. Підрахувати кількість:
+        1)	двійок
+        2)	кількість хороших оцінок (добре, відмінно);
+        3)	кількість оцінок, які нижче середнього. -->
+    <script>
+        function getMarksArray() {
+            let marksArr = prompt("Введіть оцінки учня від 1 до 12 розділені одним пробілом").split(' ')
+            return marksArr
+        }
+
+        function getStudentMarks(marksArr) {
+            let marks = []
+            for (let i = 0; i < marksArr.length; i++) {
+                marks.push(parseInt(marksArr[i]))
+            }
+            return marks
+        }
+
+        function getAverage(marks) {
+            let sum = 0
+            for (let i = 0; i < marks.length; i++) {
+                sum += marks[i]
+            }
+            return sum / marks.length
+        }
+
+        function get2Count(marks) {
+            let count2 = 0
+            for (let i = 0; i < marks.length; i++) {
+                switch (marks[i]) {
+                    case 1:
+                    case 2:
+                    case 3: count2++
+                    default: break
+                }
+            }
+            return count2
+        }
+
+        function get45Count(marks) {
+            let count45 = 0
+            for (let i = 0; i < marks.length; i++) {
+                switch (marks[i]) {
+                    case 7:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 11:
+                    case 12: count45++
+                    default: break
+                }
+            }
+            return count45
+        }
+
+        function getUnderAverage(marks) {
+            let underAverage = 0
+            for (let i = 0; i < marks.length; i++) {
+                if (marks[i] < getAverage(marks))
+                    underAverage++
+            }
+            return underAverage
+        }
+        let marksArr = getMarksArray()
+        let marks = getStudentMarks(marksArr)
+        document.write(`
+            Оцінки учня: ${marks}<br>
+            Кількість двійок: ${get2Count(marks)}<br>
+            Кількість хороших оцінок (добре, відмінно): ${get45Count(marks)}<br>
+            Кількість оцінок, які нижче середнього: ${getUnderAverage(marks)}<br>
+        `)
+    </script>
+
+</body>
+
+</html>
