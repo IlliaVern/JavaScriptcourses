@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task2.3</title>
+</head>
+
+<body>
+    <!-- Задача 3. Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, 
+    які може собі дозволити користувач (кількість грошей задається). -->
+    <script>
+        function getGoodsList() {
+            let goodsList = prompt("Введіть список товарів розділений ОДНИМ пробілом").split(' ')
+            return goodsList
+        }
+
+        function getGoodsPrices(goodsList) {
+            let goodsPrices = []
+            for (let i = 0; i < goodsList.length; i++) {
+                let price = parseInt(prompt(`Введіть ціну на ${goodsList[i]}`))
+                goodsPrices.push(price)
+            }
+            return goodsPrices
+        }
+
+        function canBuy(goodsList, goodsPrices, money) {
+            let canBuyList = []
+            for (let i = 0; i < goodsList.length; i++) {
+                if (money >= goodsPrices[i]) {
+                    canBuyList.push(goodsList[i])
+                }
+            }
+            return canBuyList
+        }
+        let goodsList = getGoodsList()
+        let goodsPrices = getGoodsPrices(goodsList)
+        let money = parseInt(prompt('Введіть скільки грошей у Вас є?'))
+        document.write(`Покупець може собі дозволити: ${canBuy(goodsList, goodsPrices, money)}`)
+    </script>
+
+</body>
+
+</html>
