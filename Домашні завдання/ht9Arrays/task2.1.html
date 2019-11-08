@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task2.1</title>
+</head>
+<body>
+        <!-- Задача 1. Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+        •	починаються на букву «А»;
+        •	перша і остання літери співпадають;
+        •	складаються з більше ніш 5 символів. -->
+        
+        <script>
+            function getAutoNumbers() {
+                let autoNumbers = prompt("Ввідіть послідовність номерів автомобілів розділених ОДНИМ пробілом").split(' ')
+                return autoNumbers
+            }
+
+            function getCountMore5(autoNumbers) {
+                let countMore5 = 0
+                for (let i = 0; i < autoNumbers.length; i++) {
+                    if (autoNumbers[i].length > 5) 
+                        countMore5++
+                }
+                return countMore5
+            }
+
+            let autoNumbers = getAutoNumbers()
+
+        </script>
+
+</body>
+</html>
