@@ -28,20 +28,18 @@
         }
 
         function game(gameFieldLength) {
-            const gameField = getRandomArray(gameFieldLength)
+            let gameField = getRandomArray(gameFieldLength)
             let sum = 0
             do {
                 let userNum = parseInt(prompt(`Задайте номер поля (від 1 до ${gameFieldLength})`))
-                let profit = gameField[userNum]
+                let profit = gameField[userNum-1]
                 sum += profit
                 alert(`Ваш виграш ${profit}`)
-                gameField[userNum] = 0
+                gameField = getRandomArray(gameFieldLength)
             } while (confirm(`Поточна сума ${sum} \nЩе хочеш кидати?`));
         }
 
-
-        let arr = getRandomArray(7)
-        document.write(``)
+        game(10)
     </script>
 </body>
 
