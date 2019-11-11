@@ -38,7 +38,7 @@
         function get2Count(marks) {
             let count2 = 0
             for (let i = 0; i < marks.length; i++) {
-                switch (marks[i]) {
+                switch (marks[i]) {   //Ну, може бути і так. Але краще зробити з використанням if
                     case 1:
                     case 2:
                     case 3: count2++
@@ -51,7 +51,7 @@
         function get45Count(marks) {
             let count45 = 0
             for (let i = 0; i < marks.length; i++) {
-                switch (marks[i]) {
+                switch (marks[i]) {   //Аналогічно, краще було з використанням if
                     case 7:
                     case 8:
                     case 9:
@@ -66,8 +66,9 @@
 
         function getUnderAverage(marks) {
             let underAverage = 0
+            let avg =  getAverage(marks)   //Краще один раз обчислити і потім використовувати готове обчислене один раз значення
             for (let i = 0; i < marks.length; i++) {
-                if (marks[i] < getAverage(marks))
+                if (marks[i] < avg)
                     underAverage++
             }
             return underAverage
