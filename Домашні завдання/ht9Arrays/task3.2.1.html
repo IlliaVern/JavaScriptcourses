@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task2.1</title>
+</head>
+
+<body>
+    <!-- 1.	Задача. Відсортувати масив імен за останньою літерою. -->
+
+    <script>
+        function getStudentNames() {
+            let studentsNames = prompt("Введіть імена учнів у класі розділені ОДНИМ пробілом").split(' ')
+            return studentsNames
+        }
+
+        function sortLastLetter(studentsNames) {
+            for (let i = 0; i < studentsNames.length; i++) {
+                if (studentsNames[i][studentNames[i].length - 1] > studentsNames[i + 1][studentNames[i + 1].length -
+                    1])
+                    return 1
+                else 
+                    if (studentsNames[i][studentNames[i].length - 1] < studentsNames[i + 1][studentNames[i + 1].length -
+                            1])
+                        return -1;
+                    else
+                        return 0;
+            }
+        }
+
+        let studentsNames = getStudentNames()
+        document.write(`Введений масив імен: ${studentsNames}<hr>`)
+        studentsNames.sort(sortLastLetter(studentsNames))
+        document.write(`Відсортований масив за останньою літерою ${studentsNames}`)
+    </script>
+</body>
+
+</html>

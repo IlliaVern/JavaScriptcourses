@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Задача 2. Дано масив цін. Сформувати новий масив, який містить тільки ті ціни, які менші за задану. -->
+
+    <script>
+        let arr = [1400, 458, 4987, 4562, 1436, 958, 547]
+        let price = parseInt(prompt('Введіть задану ціну'))
+        let priceLess = arr.filter(elCopy => elCopy < price)
+        document.write(priceLess)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Задача 3. Дано масив цін товарів. Для цін, які менші за 1000грн. додати 20% ціни, для тих, які більші за 1000 грн.
+    відняти 30%. -->
+    <script>
+        let prices = [800, 1500, 100, 2500, 3000]
+        prices.forEach((elCopy, i, arr) => elCopy < 1000 ? arr[i] *= 1.2 : arr[i] *= 0.7)
+        document.write(prices)
+    </script>
+</body>
+
+</html>

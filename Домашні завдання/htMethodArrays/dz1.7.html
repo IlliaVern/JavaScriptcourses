@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Задача 7. Розробити функцію, яка би для довільної кількості переданих символів визначала, кількість букв «а». -->
+    <script>
+        let symbols = ["a", "e", "a", "l", "r", "e", "o"]
+        let aCount = symbols.reduce((res, elCopy) => elCopy == "a" ? res + 1 : res, 0)
+        document.write(`Кількість букв "а" становить ${aCount} штук`)
+    </script>
+</body>
+
+</html>

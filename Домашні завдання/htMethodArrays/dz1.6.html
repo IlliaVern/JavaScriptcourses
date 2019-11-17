@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Задача 6. Дано масив, який зберігає кількість відвідувачів протягом тижня. 
+        З’ясувати, чи були дні, коли кількість відвідувачів була меншою за 10. -->
+    <script>
+        let visitors = [180, 15, 5, 25, 210, 14, 51]
+        if (visitors.some(elCopy => elCopy < 10))
+            alert("Були дні, коли кількість відвідувачів була меншою за 10.")
+        else
+            alert("Не було днів, коли кількість відвідувачів була меншою за 10.")
+    </script>
+</body>
+
+</html>

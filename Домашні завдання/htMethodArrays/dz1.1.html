@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Задача 1. Дано масив цілих чисел. Кожне від’ємне число замінити на 0. -->
+    <script>
+        let arr = [1, 5, -8, -7, 5, 54, 4, -54]
+        arr.forEach((elCopy, i, arr) => elCopy < 0 ? arr[i] = 0 : elCopy)
+        document.write(arr)
+    </script>
+
+</body>
+
+</html>
