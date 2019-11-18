@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 7.	Задача. Дано масив номерів автомобілів. 
+        Сформувати масив тих, які починаються на літеру «А» і закінчуються на літеру «Р». -->
+
+    <script>
+        let carNum = ["AE4474EP", "KO1584AP", "AE4474EX", "AA0001PP", "AI7777IP"]
+        let carNumAP = carNum.filter((elCopy, i, arr) => arr[i][0]=="A" && arr[i][arr[i].length-1]=="P")
+        document.write(carNumAP)
+    </script>
+</body>
+
+</html>
