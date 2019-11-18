@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1.	Задача. Відсортувати масив імен за останньою літерою. -->
+    <script>
+        // const arr = ["Illia", "Bruce", "Celine", "Dave", "Ervin", "Frank", "Gina", "Hillary"]
+        const arr = prompt("Введіть масив імен через один пробіл").split(' ')
+        document.write(`Fistr array: ${arr}<br>`)
+        arr.sort((x, y) => {
+            if (x[x.length - 1] > y[y.length - 1])
+                return 1
+            if (x[x.length - 1] < y[y.length - 1])
+                return -1
+            return 0
+        })
+        document.write(`Sorted array: ${arr}`)
+    </script>
+
+</body>
+
+</html>
