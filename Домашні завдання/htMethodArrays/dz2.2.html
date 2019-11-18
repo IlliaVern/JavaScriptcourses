@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 2.	Задача. Дано масив цін. Для усіх товарів, які дорожчі за 1000грн дати знижку 20% (помножити на 0.8), 
+        а для усіх інших товарів – надати 5 % знижки (помножити на 0.95). -->
+    <script>
+        let prices = [800, 1500, 100, 250, 3000]
+        prices.forEach((elCopy, i, arr) => elCopy > 1000 ? arr[i] *= 0.8 : arr[i] *= 0.95)
+        document.write(prices)
+    </script>
+</body>
+
+</html>
