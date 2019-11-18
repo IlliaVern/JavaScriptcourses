@@ -13,7 +13,8 @@
 
     <script>
         let age = [1989, 1999, 2001, 1987, 1985, 1958, 1972]
-        let prizovnyky = age.filter(elCopy => elCopy > 1994)
+        let currentYear = new Date().getFullYear()
+        let prizovnyky = age.filter(elCopy => elCopy > currentYear-25)
         document.write(prizovnyky)
     </script>
 </body>
