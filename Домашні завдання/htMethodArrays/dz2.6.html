@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 6.	Задача. Дано масив цін товарів. Знайти сумарну вартість тих, які знаходяться в межах від 1000 до 2000. -->
+    <script>
+        let prices = [2500, 1900, 900, 900, 1100, 1500, 2100]
+        let pricesSum = prices.reduce((res, elCopy) => elCopy >= 1000 && elCopy <= 2000 ? res + elCopy : res, 0)
+        document.write(`Сумарна вартість тих, які знаходяться в межах від 1000 до 2000 становить ${pricesSum}`)
+    </script>
+</body>
+
+</html>
