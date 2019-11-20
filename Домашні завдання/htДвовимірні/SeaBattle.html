@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sea Battle</title>
+</head>
+
+<body>
+    <!-- Задача 3. Морський бій. Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів. Користувач
+    стріляє вказуючи координати. Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться
+    снаряди. -->
+
+    <script>
+        function getEmptyGameField(rowsCount, colsCount) {
+            let arr = []
+            for (let i = 0; i < rowsCount; i++) {
+                arr.push(Array(colsCount).fill(0))
+            }
+            return arr
+        }
+
+        function getRandomNumber(minValue, maxValue) {
+            return Math.floor(minValue + Math.random() * (maxValue - minValue + 1))
+        }
+
+        function getGameField(rowsCount, colsCount, shipsCount) {
+            let gameField = getEmptyGameField(rowsCount, colsCount)
+            for (let i = 0; i < shipsCount; i++) {
+                // Знайти випадковим чином вільну комірку і розмістити там корабель
+                let row, col
+                do {
+                    row = getRandomNumber(0, rowsCount - 1)
+                    col = getRandomNumber(0, colsCount - 1)
+
+                } while (gameField[row][col] == 1);
+                // У вільну позицію розміщуємо корабель
+                gameField[row][col] = 1
+            }
+            return gameField
+        }
+
+        function game(rowsCount, colsCount, shipsCount, missleCount) {
+            let gameField = getGameField(rowsCount, colsCount, shipsCount)
+            console.log(gameField)
+            let shootRow, shootCol
+            do {
+                shootRow = parseInt(prompt("Введіть номер рядка для пострілу"))
+                shootCol = parseInt(prompt("Введіть номер стовпця для пострілу"))
+                missleCount--
+                if (gameField[shootRow][shootCol] == 1) {
+                    shipsCount--
+                    alert("Попав!")
+                    gameField[shootRow][shootCol] == 0
+                } else {
+                    alert("Промазав(((")
+                }
+            } while (shipsCount > 0 && missleCount > 0);
+            if (shipsCount == 0) {
+                alert("Перемога!")
+
+            } else {
+                alert("Поразка((")
+            }
+        }
+
+        const rowsCount = parseInt(prompt("Введіть кількість рядків"))
+        const colsCount = parseInt(prompt("Введіть кількість стовпців"))
+        const shipsCount = parseInt(prompt("Введіть кількість кораблів"))
+        const missleCount = parseInt(prompt("Введіть кількість снарядів"))
+        game(rowsCount, colsCount, shipsCount, missleCount)
+
+    </script>
+</body>
+
+</html>
