@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Задача 1. Знайти суми елементів у вказаній області -->
+    <script>
+        function getArr(rows, cols) {
+            const arr = []
+            for (let i = 0; i < rows; i++) {
+                const rowsArr = []
+                for (let j = 0; j < cols; j++) {
+                    rowsArr.push(parseInt(prompt(`Enter array element in ${i+1} row and ${j+1} col`)))
+                }
+                arr.push(rowsArr)
+            }
+            return arr
+        }
+
+        function sumFirstQuater(arr, rows, cols) {
+            let sumFirstQuater = 0
+            for (let i = 0; i < Math.floor(rows / 2); i++) {
+                for (let j = 0; j < Math.floor(cols / 2); j++) {
+                    sumFirstQuater += arr[i][j]
+                }
+            }
+            return sumFirstQuater
+        }
+
+        function sumSecondQuater(arr, rows, cols) {
+            let sumSecondQuater = 0
+            for (let i = 0; i < Math.floor(rows / 2); i++) {
+                for (let j = Math.floor(cols / 2); j < cols; j++) {
+                    sumSecondQuater += arr[i][j]
+                }
+            }
+            return sumSecondQuater
+        }
+
+        function sumThirdQuater(arr, rows, cols) {
+            let sumThirdQuater = 0
+            for (let i = Math.floor(rows / 2); i < rows; i++) {
+                for (let j = 0; j < Math.floor(cols / 2); j++) {
+                    sumThirdQuater += arr[i][j]
+                }
+            }
+            return sumThirdQuater
+        }
+
+        function sumFourthQuater(arr, rows, cols) {
+            let sumFourthQuater = 0
+            for (let i = Math.floor(rows / 2); i < rows; i++) {
+                for (let j = Math.floor(cols / 2); j < cols; j++) {
+                    sumFourthQuater += arr[i][j]
+                }
+            }
+            return sumFourthQuater
+        }
+
+        const rows = parseInt(prompt("Enter number of rows"))
+        const cols = parseInt(prompt("Enter number of cols"))
+        const arr = getArr(rows, cols)
+        document.write(`${arr}<br>`)
+        document.write(`Sum of first quater of array: ${sumFirstQuater(arr, rows, cols)}<br>`)
+        document.write(`Sum of second quater of array: ${sumSecondQuater(arr, rows, cols)}<br>`)
+        document.write(`Sum of third quater of array: ${sumThirdQuater(arr, rows, cols)}<br>`)
+        document.write(`Sum of fourth quater of array: ${sumFourthQuater(arr, rows, cols)}`)
+    </script>
+</body>
+
+</html>
