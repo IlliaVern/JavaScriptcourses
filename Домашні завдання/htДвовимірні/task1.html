@@ -14,11 +14,11 @@
         function getArr(rows, cols) {
             const arr = []
             for (let i = 0; i < rows; i++) {
-                const rowsArr = []
+                const colsArr = []
                 for (let j = 0; j < cols; j++) {
-                    rowsArr.push(parseInt(prompt(`Enter array element in ${i+1} row and ${j+1} col`)))
+                    colsArr.push(parseInt(prompt(`Enter array element in ${i+1} row and ${j+1} col`)))
                 }
-                arr.push(rowsArr)
+                arr.push(colsArr)
             }
             return arr
         }
