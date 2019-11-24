@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Задача. Розробити калькулятор -->
+    <label>First number
+        <input type="text" name="" id="firstNum" value="0">
+    </label><br>
+    <label>Second number
+        <input type="text" name="" id="secondNum" value="0">
+    </label><br>
+    <button id="sumButton">
+        Додати
+    </button>
+    <button id="minusButton">
+        Відняти
+    </button>
+    <button id="productButton">
+        Помножити
+    </button>
+    <button id="devideButton">
+        Поділити
+    </button>
+    <hr>
+    <label>Результат
+        <input type="text" name="" id="result" value="0">
+    </label>
+    <hr>
+    <div id="container"></div>
+
+    <script>
+        // function getFirstNum() {
+        //     let firstNumber = parseInt(document.getElementById('firstNum').value)
+        //     return firstNumber
+        // }
+
+        // function getSecondNum() {
+        //     let secondNumber = parseInt(document.getElementById('secondNum').value)
+        //     return secondNumber
+        // }
+
+        function sumClick() {
+            let firstNumber = parseInt(document.getElementById('firstNum').value)
+            let secondNumber = parseInt(document.getElementById('secondNum').value)
+            document.getElementById('result').value = firstNumber + secondNumber
+            // const container = document.getElementById('container')
+            // const div = document.createElement('div')
+            // div.innerText = `${firstNumber}+${secondNumber}=${firstNumber + secondNumber}`
+            // container.appendChild(div)
+        }
+
+        function minusClick() {
+            let firstNumber = parseInt(document.getElementById('firstNum').value)
+            let secondNumber = parseInt(document.getElementById('secondNum').value)
+            document.getElementById('result').value = firstNumber - secondNumber
+            // const container = document.getElementById('container')
+            // const div = document.createElement('div')
+            // div.innerText = `${firstNumber}-${secondNumber}=${firstNumber-secondNumber}`
+            // container.appendChild(div)
+        }
+        function productClick() {
+            let firstNumber = parseInt(document.getElementById('firstNum').value)
+            let secondNumber = parseInt(document.getElementById('secondNum').value)
+            document.getElementById('result').value = firstNumber * secondNumber
+        }
+
+        function devideClick() {
+            let firstNumber = parseInt(document.getElementById('firstNum').value)
+            let secondNumber = parseInt(document.getElementById('secondNum').value)
+            document.getElementById('result').value = (firstNumber / secondNumber).toFixed(3)
+        }
+        // let firstNumber = getFirstNum()
+        // let secondNum = getSecondNum()
+        const sumButton = document.getElementById('sumButton')
+        sumButton.onclick = sumClick
+        const minusButton = document.getElementById('minusButton')
+        minusButton.onclick = minusClick
+        const productButton = document.getElementById('productButton')
+        productButton.onclick = productClick
+        const devideButton = document.getElementById('devideButton')
+        devideButton.onclick = devideClick
+    </script>
+
+
+
+
+    <!-- Задача. Зробити конвертер валют -->
+
+
+
+
+</body>
+
+</html>
