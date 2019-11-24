@@ -33,7 +33,7 @@
         <input type="text" name="" id="result" value="0">
     </label>
     <hr>
-    <div id="container"></div>
+    <div id="container1"></div>
 
     <script>
         // function getFirstNum() {
@@ -50,32 +50,40 @@
             let firstNumber = parseInt(document.getElementById('firstNum').value)
             let secondNumber = parseInt(document.getElementById('secondNum').value)
             document.getElementById('result').value = firstNumber + secondNumber
-            // const container = document.getElementById('container')
-            // const div = document.createElement('div')
-            // div.innerText = `${firstNumber}+${secondNumber}=${firstNumber + secondNumber}`
-            // container.appendChild(div)
+            const container = document.getElementById('container1')
+            const div = document.createElement('div')
+            div.innerText = `${firstNumber}+${secondNumber}=${firstNumber + secondNumber}`
+            container.appendChild(div)
         }
 
         function minusClick() {
             let firstNumber = parseInt(document.getElementById('firstNum').value)
             let secondNumber = parseInt(document.getElementById('secondNum').value)
             document.getElementById('result').value = firstNumber - secondNumber
-            // const container = document.getElementById('container')
-            // const div = document.createElement('div')
-            // div.innerText = `${firstNumber}-${secondNumber}=${firstNumber-secondNumber}`
-            // container.appendChild(div)
+            const container = document.getElementById('container1')
+            const div = document.createElement('div')
+            div.innerText = `${firstNumber}-${secondNumber}=${firstNumber-secondNumber}`
+            container.appendChild(div)
         }
 
         function productClick() {
             let firstNumber = parseInt(document.getElementById('firstNum').value)
             let secondNumber = parseInt(document.getElementById('secondNum').value)
             document.getElementById('result').value = firstNumber * secondNumber
+            const container = document.getElementById('container1')
+            const div = document.createElement('div')
+            div.innerText = `${firstNumber}*${secondNumber}=${firstNumber*secondNumber}`
+            container.appendChild(div)
         }
 
         function devideClick() {
             let firstNumber = parseInt(document.getElementById('firstNum').value)
             let secondNumber = parseInt(document.getElementById('secondNum').value)
             document.getElementById('result').value = (firstNumber / secondNumber).toFixed(3)
+            const container = document.getElementById('container1')
+            const div = document.createElement('div')
+            div.innerText = `${firstNumber}/${secondNumber}=${(firstNumber / secondNumber).toFixed(3)}`
+            container.appendChild(div)
         }
         // let firstNumber = getFirstNum()
         // let secondNum = getSecondNum()
@@ -106,12 +114,19 @@
     <label>Сума в долларах
         <input type="text" name="" id="usdCount" value="0">
     </label>
+    <hr>
+    <div id="container2"></div>
 
     <script>
         function convertClick() {
             let uahCount = parseFloat(document.getElementById('uahCount').value)
             document.getElementById('euroCount').value = (uahCount / 26.62).toFixed(2)
             document.getElementById('usdCount').value = (uahCount / 24.19).toFixed(2)
+            const container = document.getElementById('container2')
+            const div = document.createElement('div')
+            div.innerText = `${uahCount} UAH = ${(uahCount / 26.62).toFixed(2)} EUR та ${(uahCount / 24.19).toFixed(2)} USD`
+            container.appendChild(div)
+            
         }
 
         const convertButton = document.getElementById('convertButton')
