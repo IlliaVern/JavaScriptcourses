@@ -65,6 +65,7 @@
             // div.innerText = `${firstNumber}-${secondNumber}=${firstNumber-secondNumber}`
             // container.appendChild(div)
         }
+
         function productClick() {
             let firstNumber = parseInt(document.getElementById('firstNum').value)
             let secondNumber = parseInt(document.getElementById('secondNum').value)
@@ -89,11 +90,33 @@
     </script>
 
 
-
-
     <!-- Задача. Зробити конвертер валют -->
 
+    <label>Сума а гривнях
+        <input type="text" name="" id="uahCount" value="0">
+    </label><br>
+    <button id="convertButton">
+        Конвертувати
+    </button>
+    <hr>
+    <label>Сума в євро
+        <input type="text" name="" id="euroCount" value="0">
+    </label><br>
 
+    <label>Сума в долларах
+        <input type="text" name="" id="usdCount" value="0">
+    </label>
+
+    <script>
+        function convertClick() {
+            let uahCount = parseFloat(document.getElementById('uahCount').value)
+            document.getElementById('euroCount').value = (uahCount / 26.62).toFixed(2)
+            document.getElementById('usdCount').value = (uahCount / 24.19).toFixed(2)
+        }
+
+        const convertButton = document.getElementById('convertButton')
+        convertButton.onclick = convertClick
+    </script>
 
 
 </body>
