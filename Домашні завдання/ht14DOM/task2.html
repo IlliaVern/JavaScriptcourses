@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Задача. Знайти середню оцінку учня. Кількість та оцінки вводяться користувачем 
+    (використати таблицю з компонентами input). -->
+    <div>
+        Кількість оцінок учня
+        <input type="text" id="marksСount" value="" /><br>
+        <input type="button" value="Створити таблицю" onclick="drawTable()" /> <br>
+        <hr>
+    </div>
+    <div id="myTable"></div>
+    <div>
+        <hr>
+        <input type="button" value="Знайти середню оцінку" onclick="getAverageMark()" /> <br>
+        Середня оцінка учня = <input type="text" id="averageMark" value="" />
+    </div>
+
+    <script>
+        function drawTable() {
+            var marksTable = document.createElement("table")
+            marksTable.id = "marks"
+            var row = document.createElement("tr")
+            var marksСount = parseInt(document.getElementById("marksСount").value)
+            for (var i = 0; i < marksСount; i++) {
+                let tr = document.createElement("tr")
+                let inp = document.createElement("input")
+                inp.type = "text"
+                inp.value = "0"
+                tr.appendChild(inp)
+                row.appendChild(tr)
+            }
+            marksTable.appendChild(row)
+            marksTable.border = " solid black 2px"
+            var div = document.getElementById("myTable")
+            div.innerHTML = ""
+            div.appendChild(marksTable)
+        }
+
+        function getAverageMark() {
+            let inputs = document.querySelectorAll("table input")
+            var s = 0
+            for (var i = 0; i < inputs.length; i++) {
+                s += +inputs[i].value
+            }
+            document.getElementById("averageMark").value = (s / inputs.length).toFixed(2)
+        }
+    </script>
+
+
+</body>
+
+</html>
