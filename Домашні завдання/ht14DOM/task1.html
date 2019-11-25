@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Задача 1. Користувач задає рік народження. Визначити кількість років користувача -->
+    <label>Рік народження
+        <input type="text" name="" id="bornYear" value="0">
+    </label><br><hr>
+    <button id="howOld">
+        Який вік
+    </button>
+    <label>
+        <input type="text" name="" id="manyYears" value="0">
+    </label>
+
+    <script>
+        function getHowOld() {
+            const bornYear = parseInt(document.getElementById('bornYear').value)
+            const nowYear = new Date()
+            document.getElementById('manyYears').value = nowYear.getFullYear() - bornYear
+        }
+        document.getElementById('howOld').onclick = getHowOld
+    </script>
+</body>
+</html>
