@@ -7,41 +7,53 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
+        function createTr(rowNum) {
+            const tr = document.createElement('tr')
+            const td = document.createElement('td')
+            td.innerText = `Білет ${rowNum}`
+            tr.appendChild(td)
 
-        function createTickets() {
-            const ticketsNum = parseInt(document.getElementById('ticketsNum').value)
-            const numTicket = document.getElementById('container')
-            // container.innerHTML = ''
-            const ticketTr = numTicket.cloneNode(true)
-            for (let i = 0; i < ticketsNum; i++) {
-                numTicket.appendChild(ticketTr)
-            }
-            return numTicket
+            const td2 = document.createElement('td')
+            td2.innerHTML =
+                `<label>
+                    <input type="checkbox" name="" id="ticketType" value="100">
+                    Загальний
+                </label><br>
+                <label>
+                    <input type="checkbox" name="" id="ticketType" value="170">
+                    Плацкарт
+                </label><br>
+                <label>
+                    <input type="checkbox" name="" id="ticketType" value="230">
+                    Купе
+                </label>`
+            tr.appendChild(td2)
+            return tr
         }
 
-        function getCheckedArr(groupName) {
-            let arr = []
-            const inputs = document.getElementsByName(groupName)
+        function onTicketsCountChange() {
+            const ticketsCount = parseInt(document.getElementById('ticketsCount').value)
+
+            const container = document.getElementById('container')
+            container.innerHTML = ''
+            for (let i = 0; i < ticketsCount; i++) {
+                container.appendChild(createTr(i + 1))
+            }
+        }
+
+        function getTotalTicketsPrice() {
+            const inputs = document.querySelectorAll("input[id='ticketType']")
+            let sum = 0
             for (let i = 0; i < inputs.length; i++) {
                 if (inputs[i].checked)
-                    arr.push(inputs[i].value)
+                    sum += parseInt(inputs[i].value)
             }
-            return arr
-        }
-
-        function getTotalPay() {
-            let destCityArr = getCheckedArr('destCity')
-            let ticketTypeArr = getCheckedArr('ticketType')
-            let sum = 0
-            for (let i = 0; i < destCityArr.length; i++) {
-                sum += destCityArr[i] * ticketTypeArr[i]
-            }
-            document.getElementById('totalPay').innerText = sum
+            document.getElementById('totalTicketsPrice').innerText = sum
         }
 
         window.onload = function () {
-            document.getElementById('ticketsNum').onchange = createTickets
-            document.getElementById('btn').onclick = getTotalPay
+            document.getElementById('ticketsCount').onchange = onTicketsCountChange
+            document.getElementById('btn').onclick = getTotalTicketsPrice
         }
     </script>
 </head>
@@ -50,46 +62,29 @@
     <!-- Задача. Визначення вартості квитків (кількість – число, тип квитка – купе, загальний, плацкарт). 
         На сторінці розмістити відповідні елементи для вводу потрібної інформації. -->
     <p>
-        <label>
-            Кількість квитків
-            <input type="number" id="ticketsNum" value="1">
+        <label>Кількість білетів
+            <input type="number" id="ticketsCount" value="0">
         </label>
-        <table border="1px">
+        <table border="2px">
             <thead>
                 <tr>
-                    <th>Місто призначення</th>
+                    <th>Номер білета</th>
                     <th>Тип квитка</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr id="container">
-                    <td>
-                            <!-- <select name="" id="destCity">
-                                    <option value="650">Львів</option>
-                                    <option value="380">Харків</option>
-                                    <option value="470">Одеса</option>
-                                    <option value="420">Київ</option>
-                                    <option value="380">Дніпро</option>
-                                </select> -->
-                        <input type="radio" name="destCity" id="" value="650">Львів<br>
-                        <input type="radio" name="destCity" id="" value="380">Харків<br>
-                        <input type="radio" name="destCity" id="" value="470">Одеса<br>
-                        <input type="radio" name="destCity" id="" value="420">Київ<br>
-                        <input type="radio" name="destCity" id="" value="300">Дніпро
-                    </td>
-                    <td>
-                        <input type="radio" name="ticketType" id="" value="1">Загальний<br>
-                        <input type="radio" name="ticketType" id="" value="1.5">Плацкарт<br>
-                        <input type="radio" name="ticketType" id="" value="2.3">Купе
-                    </td>
-                </tr>
+            <tbody id="container">
+
             </tbody>
         </table>
-
         <hr>
-        <button id="btn">Вартість квитків</button>
-        <p>Загалом до сплати <span id="totalPay"></span></p>
+        <button id="btn">
+            Визначити вартість квитків
+        </button>
+        <p>Вартість квитків <span id="totalTicketsPrice"></span>
+        </p>
     </p>
+
+
 </body>
 
 </html>
