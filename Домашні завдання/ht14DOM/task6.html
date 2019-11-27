@@ -15,10 +15,19 @@
 
             const td2 = document.createElement('td')
             td2.innerHTML =
-                `<label><input type="checkbox" name="" id="ticketType" value="100">Загальний</label><br>
-                <label><input type="checkbox" name="" id="ticketType" value="170">Плацкарт</label><br>
-                <label><input type="checkbox" name="" id="ticketType" value="230">Купе</label>`
+                `<label><input type="checkbox" name="" id="destCity" value="490">Львів</label><br>
+                <label><input type="checkbox" name="" id="destCity" value="370">Харків</label><br>
+                <label><input type="checkbox" name="" id="destCity" value="390">Одеса</label><br>
+                <label><input type="checkbox" name="" id="destCity" value="310">Київ</label><br>
+                <label><input type="checkbox" name="" id="destCity" value="240">Дніпро</label>`
             tr.appendChild(td2)
+
+            const td3 = document.createElement('td')
+            td3.innerHTML =
+                `<label><input type="checkbox" name="" id="ticketType" value="1">Загальний</label><br>
+                <label><input type="checkbox" name="" id="ticketType" value="1.7">Плацкарт</label><br>
+                <label><input type="checkbox" name="" id="ticketType" value="2.2">Купе</label>`
+            tr.appendChild(td3)
             return tr
         }
 
@@ -33,12 +42,21 @@
         }
 
         function getTotalTicketsPrice() {
-            const inputs = document.querySelectorAll("input[id='ticketType']")
-            let sum = 0
-            for (let i = 0; i < inputs.length; i++) {
-                if (inputs[i].checked)
-                    sum += parseInt(inputs[i].value)
+            const inputsDestCity = document.querySelectorAll("input[id='destCity']")
+            const inputsTicketType = document.querySelectorAll("input[id='ticketType']")
+            let arrDestCity = [],
+                arrTicketType = []
+            for (let i = 0; i < inputsDestCity.length; i++) {
+                if (inputsDestCity[i].checked) arrDestCity.push(parseInt(inputsDestCity[i].value))
             }
+            for (let j = 0; j < inputsTicketType.length; j++) {
+                if (inputsTicketType[j].checked) arrTicketType.push(parseInt(inputsTicketType[j].value))
+            }
+            let sum = 0
+            for (let i = 0; i < arrDestCity.length; i++) {
+                sum += arrDestCity[i] * arrTicketType[i]
+            }
+
             document.getElementById('totalTicketsPrice').innerText = sum
         }
 
@@ -60,6 +78,7 @@
             <thead>
                 <tr>
                     <th>Номер білета</th>
+                    <th>Напрямок</th>
                     <th>Тип квитка</th>
                 </tr>
             </thead>
