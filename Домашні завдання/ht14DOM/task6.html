@@ -50,7 +50,7 @@
                 if (inputsDestCity[i].checked) arrDestCity.push(parseInt(inputsDestCity[i].value))
             }
             for (let j = 0; j < inputsTicketType.length; j++) {
-                if (inputsTicketType[j].checked) arrTicketType.push(parseInt(inputsTicketType[j].value))
+                if (inputsTicketType[j].checked) arrTicketType.push(parseFloat(inputsTicketType[j].value))
             }
             let sum = 0
             for (let i = 0; i < arrDestCity.length; i++) {
