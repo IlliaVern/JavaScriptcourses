@@ -15,19 +15,27 @@
 
             const td2 = document.createElement('td')
             td2.innerHTML =
-                `<label><input type="checkbox" name="" id="destCity" value="490">Львів</label><br>
-                <label><input type="checkbox" name="" id="destCity" value="370">Харків</label><br>
-                <label><input type="checkbox" name="" id="destCity" value="390">Одеса</label><br>
-                <label><input type="checkbox" name="" id="destCity" value="310">Київ</label><br>
-                <label><input type="checkbox" name="" id="destCity" value="240">Дніпро</label>`
+                `<label><input type="radio" name="" id="destCity" value="490">Львів</label><br>
+                <label><input type="radio" name="" id="destCity" value="370">Харків</label><br>
+                <label><input type="radio" name="" id="destCity" value="390">Одеса</label><br>
+                <label><input type="radio" name="" id="destCity" value="310">Київ</label><br>
+                <label><input type="radio" name="" id="destCity" value="240">Дніпро</label>`
             tr.appendChild(td2)
+            const inputsDestCity = document.querySelectorAll("input[id='destCity']")
+            for (let i = 0; i < inputsDestCity.length; i++) {
+                inputsDestCity[i].name = `dest ${rowNum}`
+            }
 
             const td3 = document.createElement('td')
             td3.innerHTML =
-                `<label><input type="checkbox" name="" id="ticketType" value="1">Загальний</label><br>
-                <label><input type="checkbox" name="" id="ticketType" value="1.7">Плацкарт</label><br>
-                <label><input type="checkbox" name="" id="ticketType" value="2.2">Купе</label>`
+                `<label><input type="radio" name="" id="ticketType" value="1">Загальний</label><br>
+                <label><input type="radio" name="" id="ticketType" value="1.7">Плацкарт</label><br>
+                <label><input type="radio" name="" id="ticketType" value="2.2">Купе</label>`
             tr.appendChild(td3)
+            const inputsTicketType = document.querySelectorAll("input[id='ticketType']")
+            for (let i = 0; i < inputsTicketType.length; i++) {
+                inputsTicketType[i].name = `type ${rowNum}`
+            }
             return tr
         }
 

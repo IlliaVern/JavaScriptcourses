@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        let addDigitState = true
+
+        function digitOnScreen(e) {
+            const el = e.target
+            if (el.tagName === 'BUTTON') {
+                const title = el.innerText
+                if (title >= '0' && title <= '9') {
+                    if (document.getElementById('screen').value === '0' || !addDigitState) {
+                        document.getElementById('screen').value = ''
+                        addDigitState = true
+                    }
+                    document.getElementById('screen').value += title
+                }
+            }
+        }
+
+        function onClear() {
+            document.getElementById('screen').value = '0'
+        }
+
+        let firstNumber = 0
+        let operation = '+'
+
+        function onOperClick(e) {
+            operation = e.target.innerText
+            firstNumber = parseInt(document.getElementById('screen').value)
+            addDigitState = false
+        }
+
+        function doOperation(firstNum, secondNum, oper) {
+            switch (oper) {
+                case "+": return firstNum + secondNum
+                case "-": return firstNum - secondNum
+                case "*": return firstNum * secondNum
+                case "/": return firstNum / secondNum
+            }
+        }
+
+        function onEqual() {
+            let secondNumber = parseInt(document.getElementById('screen').value)
+            const res = doOperation(firstNumber, secondNumber, operation)
+            document.getElementById('screen').value = res
+        }
+        window.onload = function () {
+            document.getElementById('clear').onclick = onClear
+            document.getElementById("calcTable").onclick = digitOnScreen
+            const operButtons = document.querySelectorAll('.oper')
+            for (let i = 0; i < operButtons.length; i++) {
+                operButtons[i].onclick = onOperClick
+            }
+            document.getElementById('res').onclick = onEqual
+        }
+    </script>
+    <style>
+        button {
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="2px" id="calcTable">
+        <thead>
+            <tr>
+                <td colspan="4">
+                    <input type="text" id="screen">
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><button>1</button></td>
+                <td><button>2</button></td>
+                <td><button>3</button></td>
+                <td><button class="oper">+</button></td>
+            </tr>
+            <tr>
+                <td><button>4</button></td>
+                <td><button>5</button></td>
+                <td><button>6</button></td>
+                <td><button class="oper">-</button></td>
+            </tr>
+            <tr>
+                <td><button>7</button></td>
+                <td><button>8</button></td>
+                <td><button>9</button></td>
+                <td><button class="oper">*</button></td>
+            </tr>
+            <tr>
+                <td><button id="clear">C</button></td>
+                <td><button>0</button></td>
+                <td><button id="res">=</button></td>
+                <td><button class="oper">/</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
