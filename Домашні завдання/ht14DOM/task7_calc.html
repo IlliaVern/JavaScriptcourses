@@ -7,11 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
+        let num1, num2, oper
+
         function click(event) {
             const btn = event.target
-            const screen=document.getElementById('screen')
-            screen.value+= btn.innerText
+            const screen = document.getElementById('screen')
+            const calcOper = document.querySelectorAll("button[id='calc']").innerText
+
+            if (btn.innerText >= 0 && btn.innerText <= 9) { screen.value += btn.innerText }
+            if (btn.innerText == '+' || btn.innerText == '-' || btn.innerText == '*' || btn.innerText == '/') {
+                    num1 = parseInt(screen.value)
+                    oper = btn.innerText
+                    screen.value = ''
+                }
+            
+            if (btn.innerText == 'C') { screen.value = '' }
+            if (btn.innerText == '=') {
+                num2 = parseInt(screen.value)
+                screen.value = ''
+                calc(num1, num2, oper)
+            }
         }
+
+        function calc(num1, num2, oper) {
+            const screen = document.getElementById('screen')
+            if (oper == '+' || oper == '-' || oper == '*' || oper == '/') {
+                screen.value = num1 + oper + num2
+            }
+        }
+
         window.onload = function () {
             document.getElementById("keyBoard").onclick = click
         }
@@ -30,27 +54,28 @@
         </thead>
         <tbody id="keyBoard">
             <tr>
-                <td><button>1</button></td>
-                <td><button>2</button></td>
-                <td><button>3</button></td>
-                <td><button>+</button></td>
+                <td><button id="num">1</button></td>
+                <td><button id="num">2</button></td>
+                <td><button id="num">3</button></td>
+                <td><button id="calc">+</button></td>
             </tr>
             <tr>
-                <td><button>4</button></td>
-                <td><button>5</button></td>
-                <td><button>6</button></td>
-                <td><button>-</button></td>
+                <td><button id="num">4</button></td>
+                <td><button id="num">5</button></td>
+                <td><button id="num">6</button></td>
+                <td><button id="calc">-</button></td>
             </tr>
             <tr>
-                <td><button>7</button></td>
-                <td><button>8</button></td>
-                <td><button>9</button></td>
-                <td><button>*</button></td>
+                <td><button id="num">7</button></td>
+                <td><button id="num">8</button></td>
+                <td><button id="num">9</button></td>
+                <td><button id="calc">*</button></td>
             </tr>
             <tr>
                 <td><button id="clear">C</button></td>
-                <td colspan="2" align="center"><button>0</button></td>
-                <td><button>/</button></td>
+                <td><button id="num">0</button></td>
+                <td><button id="res">=</button></td>
+                <td><button id="calc">/</button></td>
             </tr>
         </tbody>
     </table>
