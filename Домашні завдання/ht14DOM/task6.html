@@ -20,22 +20,24 @@
                 <label><input type="radio" name="" id="destCity" value="390">Одеса</label><br>
                 <label><input type="radio" name="" id="destCity" value="310">Київ</label><br>
                 <label><input type="radio" name="" id="destCity" value="240">Дніпро</label>`
-            tr.appendChild(td2)
             const inputsDestCity = document.querySelectorAll("input[id='destCity']")
             for (let i = 0; i < inputsDestCity.length; i++) {
-                inputsDestCity[i].name = `dest ${rowNum}`
+                inputsDestCity[i].setAttribute('name', `dest${rowNum}`)
             }
+            tr.appendChild(td2)
+
 
             const td3 = document.createElement('td')
             td3.innerHTML =
                 `<label><input type="radio" name="" id="ticketType" value="1">Загальний</label><br>
                 <label><input type="radio" name="" id="ticketType" value="1.7">Плацкарт</label><br>
                 <label><input type="radio" name="" id="ticketType" value="2.2">Купе</label>`
-            tr.appendChild(td3)
             const inputsTicketType = document.querySelectorAll("input[id='ticketType']")
             for (let i = 0; i < inputsTicketType.length; i++) {
-                inputsTicketType[i].name = `type ${rowNum}`
+                inputsTicketType[i].setAttribute('name', `type${rowNum}`)
             }
+            tr.appendChild(td3)
+
             return tr
         }
 
