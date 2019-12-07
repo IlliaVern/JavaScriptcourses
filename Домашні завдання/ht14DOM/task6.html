@@ -7,14 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        function createTr(rowNum) {
+        //Додавати label генеруючи їх та спробувати з масивом об'єктів
+        let cities = ["Львів", "Харків", "Одеса", "Київ", "Дніпро"]
+        let prices = [490, 370, 390, 310, 240]
+        function createTr(rowNum,cities, prices) {
             const tr = document.createElement('tr')
             const td = document.createElement('td')
             td.innerText = `Білет ${rowNum}`
             tr.appendChild(td)
 
             const td2 = document.createElement('td')
-            td2.innerHTML =
+            td2.innerHTML = 
                 `<label><input type="radio" name="" id="destCity" value="490">Львів</label><br>
                 <label><input type="radio" name="" id="destCity" value="370">Харків</label><br>
                 <label><input type="radio" name="" id="destCity" value="390">Одеса</label><br>

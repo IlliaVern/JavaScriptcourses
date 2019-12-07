@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Замовлення білетів</title>
+    <script>
+        function addOrder() {
+            var inputs = document.getElementsByTagName("input")
+            var ticketOrder = []
+            let totalSum = 0
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].checked) {
+                    totalSum += +inputs[i].value
+                    ticketOrder.push(inputs[i].previousElementSibling.innerText)
+                }
+            }
+            var order = document.createElement("div")
+            order.innerText = `${ticketOrder.join('-')}  :  ${totalSum}`
+            document.getElementById("orders").appendChild(order)
+            let totalOrder = parseInt(totalSum)
+            document.getElementById("totalOrder").value += +totalOrder
+
+
+
+        }
+        function getTotal() {
+            let tot
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Заброньовані білети</h1>
+    <div id="orders">
+
+    </div>
+    <fieldset>
+        <legend>Місто призначення</legend>
+        <span>Львів</span><input type="radio" name="destCity" value="490" />
+        <span>Харків</span><input type="radio" name="destCity" value="370" />
+        <span>Одесса</span><input type="radio" name="destCity" value="390" />
+        <span>Київ</span><input type="radio" name="destCity" value="310" />
+        <span>Дніпро</span><input type="radio" name="destCity" value="240" />
+
+    </fieldset>
+    <fieldset>
+        <legend>Тип квитка</legend>
+        <span>Загальний</span><input type="radio" name="ticketType" value="0" />
+        <span>Плацкарт</span><input type="radio" name="ticketType" value="120" />
+        <span>Купе</span><input type="radio" name="ticketType" value="220" />
+    </fieldset>
+    <fieldset>
+        <legend>Додатково</legend>
+        <span>Постіль</span><input type="checkbox" id="linens" value="55" />
+        <span>Чай</span><input type="checkbox" id="tea" value="12" />
+    </fieldset>
+    <hr>
+    <input type="button" name="name" value="Додати замовлення" onclick="addOrder()" /><br>
+    <label>Загальна вартість замовлення = <input type="text" name="name" id="totalOrder" value="0"/></label>
+
+
+</body>
+
+</html>
