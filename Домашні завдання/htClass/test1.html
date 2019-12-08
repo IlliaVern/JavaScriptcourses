@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function Range(pstart, pend) {
+            //Описуємо ті властивості які у обєктів можуть бути різні
+            this.start = start
+            this.end = end
+        }
+        // Описуємо властивості які у обєктів повторюються
+            Range.prototype.includes=function(num){
+                return num>=this.start && num<=this.end
+            }
+            Range.prototype.getRandNum = function() {
+                return Math.floor(this.start+Math.random()*(this.end-this.start+1))
+            }
+            Range.prototype.f1=function() {
+                alert("------Range------")
+            }
+        
+        const r1=new Range(1,10)
+        // document.write(`Rand: ${r1.getRandNum()}`)
+        const r2=new Range(11,20)
+        // document.write(`Rand: ${r2.getRandNum()}`)
+        r1.f1()
+
+        r2.f1=function() {
+            alert("Hello")
+        }
+
+        r2.f1()
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

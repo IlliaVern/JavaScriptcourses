@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function Client(name, account, money) {
+            this.name = name
+            this.account = account
+            this.money = money
+        }
+
+        Client.prototype.getMoney = function (amount) {
+            if (amount <= this.money) {
+                this.money - amount
+                return true
+            }
+        }
+        Client.prototype.putMoney = function (amount) {
+            this.money += amount
+        }
+        Client.prototype.toString = function () {
+            return `${this.name} - ${this.money}`
+        }
+
+        const cl1 = new Client('Ivanov Ivan Ivanovich', 's55g5dg55e5', 3200)
+        document.write(cl1 + '<br>')
+        cl1.putMoney(500)
+        document.write(cl1 + '<br>')
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
