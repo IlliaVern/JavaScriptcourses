@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Задача. Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку. -->
+
+    <script>
+        class ShootingGallery {
+            constructor(rabbit_field) {
+                this.rabbit_field = this.getRandomRabbitField()
+            }
+            getRandomRabbitField = () => {
+                const rabbit_field = []
+                for (let i = 0; i < 10; i++) {
+                    rabbit_field.push(Math.floor(Math.random() * 2))
+                }
+                return rabbit_field
+            }
+            showRabbitField = () => {
+                const table = document.createElement('table')
+                const tr = document.createElement('tr')
+                for (let i = 0; i < this.rabbit_field.length; i++) {
+                    const td = document.createElement('td')
+                    td.innerText = this.rabbit_field[i]
+                    tr.appendChild(td)
+                }
+                table.appendChild(tr)
+                return table
+            }
+            makeShoot = () => {
+                const shootPosition = parseInt(prompt('Enter your shoot position from 1 to 10'))
+                this.rabbit_field[shootPosition-1] == 1 ? alert("ПОПАЛ!!!") : alert("Промазал(((")
+            }
+
+            render(containerId) {
+                const container = document.getElementById(containerId)
+                const table = this.showRabbitField()
+                container.appendChild(table)
+            }
+        }
+        window.onload = function () {
+            const shootingGallery = new ShootingGallery()
+            shootingGallery.makeShoot()
+            shootingGallery.render('container')
+        }
+    </script>
+    <style>
+        td {
+            border: 2px solid black;
+        }
+    </style>    
+</head>
+<div id="container"></div>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Задача. Створити об’єкт «Авто».  -->
+    <script>
+        class Auto {
+            constructor(mark, fuel_tank, has_liters, seats, passengers) {
+                this.mark = mark
+                this.fuel_tank = fuel_tank
+                this.has_liters = has_liters
+                this.seats = seats
+                this.passengers = passengers
+            }
+            refuel = (liters) => {
+                if (liters <= (this.fuel_tank - this.has_liters)) {
+                    this.has_liters += liters
+                    return true
+                } else return false
+            }
+            addPassengers = (people) => {
+                if (people <= (this.seats - this.passengers))
+                    this.passengers += people
+                else return false
+
+            }
+            landPassengers = (people) => {
+                if (this.passengers <= people) {
+                    this.passengers -= people
+                    return true
+                } else return false
+
+            }
+            render(containerId) {
+                const container = document.getElementById(containerId)
+                this.spanAuto = document.createElement('span')
+                this.spanAuto.innerText =
+                    `Mark: ${this.mark}, fuel tank: ${this.fuel_tank}, liters in fuel tank: ${this.has-liters}, 
+                    number of seats: ${this.seats}, passengers in car: ${this.passengers}`
+                container.appendChild(this.spanAuto)
+                return `Passengers = ${this.passengers}`
+            }
+
+        }
+        window.onload = function () {
+            let auto = new Auto("Hyundai", 48, 20, 5, 3)
+            auto.render('container')
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+
+</html>

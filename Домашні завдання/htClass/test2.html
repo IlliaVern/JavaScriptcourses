@@ -7,26 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        function Client(name, account, money) {
+        class Client {
+        constructor(name, account, money) {
             this.name = name
             this.account = account
             this.money = money
         }
 
-        Client.prototype.getMoney = function (amount) {
+        getMoney = (amount)=> {
             if (amount <= this.money) {
                 this.money - amount
                 return true
             }
         }
-        Client.prototype.putMoney = function (amount) {
+        putMoney = (amount)=> {
             this.money += amount
         }
-        Client.prototype.toString = function () {
+        toString = () => {
             return `${this.name} - ${this.money}`
         }
+    }
 
-        const cl1 = new Client('Ivanov Ivan Ivanovich', 's55g5dg55e5', 3200)
+        const cl1 = new Client('Ivanov Ivan Ivanovich', 'account number', 3200)
         document.write(cl1 + '<br>')
         cl1.putMoney(500)
         document.write(cl1 + '<br>')

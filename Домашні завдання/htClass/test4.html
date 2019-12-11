@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        class AddTrainer {
+            constructor(minNum = 0, maxNum = 10) {
+                this.minNum = minNum
+                this.maxNum = maxNum
+            }
+            getRandomNumber = () => {
+                return Math.floor(this.minNum + Math.random() * (this.maxNum - this.minNum + 1))
+            }
+            getNewTask = () => {
+                this.num1 = this.getRandomNumber()
+                this.spanNum1.innerText = this.num1
+                this.num2 = this.getRandomNumber()
+                this.spanNum2.innerText = this.num2
+                this.userInput.value=''
+            }
+            onCheckClick = () => {
+                const userAnswear = parseInt(this.userInput.value)
+                const answear = this.num1 + this.num2
+                if (answear == userAnswear)
+                    this.spanRes.innerText = 'Wright!!!'
+                else this.spanRes.innerText = 'NOT Wright(('
+                this.getNewTask()
+            }
+
+            render(containerId) {
+                const container = document.getElementById(containerId)
+                let div = document.createElement('div')
+                div.innerText = 'First number: '
+                this.spanNum1 = document.createElement('span')
+                div.appendChild(this.spanNum1)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                div.innerText = 'Second number: '
+                this.spanNum2 = document.createElement('span')
+                div.appendChild(this.spanNum2)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                div.innerText = 'Your answear: '
+                this.userInput = document.createElement('input')
+                div.appendChild(this.userInput)
+                container.appendChild(div)
+
+                const btn = document.createElement('button')
+                btn.innerText = 'Check'
+                btn.onclick = this.onCheckClick
+                container.appendChild(btn)
+
+                div = document.createElement('div')
+                div.innerText = 'Result: '
+                this.spanRes = document.createElement('span')
+                div.appendChild(this.spanRes)
+                container.appendChild(div)
+
+                this.getNewTask()
+            }
+        }
+        window.onload = function () {
+            const trainer = new AddTrainer(1, 7)
+            trainer.render('container')
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+
+</html>

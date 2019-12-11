@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Задача. Створити об’єкт «Рулетка» -->
+
+    <script>
+        class Rulette {
+
+            constructor(rulette_scores) {
+                if (!rulette_scores) {
+                    this.rulette_scores = this.getRandomRuletteScores()
+                } else {
+                    this.rulette_scores = rulette_scores
+                }
+            }
+
+            getRandomRuletteScores() {
+                const scores_arr = []
+                for (let i = 0; i < 10; i++) {
+                    scores_arr.push(Math.floor(-100 + Math.random() * (201))) //від 0 до 100 комірки рулетки
+                }
+                return scores_arr
+            }
+            getRandomScore() {
+                const randIndex = Math.floor(Math.random() * this.rulette_scores.length)
+                return this.rulette_scores[randIndex]
+            }
+            getTable() {
+                const table = document.createElement('table')
+                const tr = document.createElement('tr')
+                for (let i = 0; i < this.rulette_scores.length; i++) {
+                    const td = document.createElement('td')
+                    td.innerText = this.rulette_scores[i]
+                    tr.appendChild(td)
+                }
+                table.appendChild(tr)
+                return table
+            }
+            onGoClick=()=> {   // 2-й спосіб (додати стрілкову функцію) onGoClick=()=> {
+                this.res_span.innerText = this.getRandomScore()
+            }
+            render(containerId) {
+                const container = document.getElementById(containerId)
+                const table = this.getTable()
+                container.appendChild(table)
+
+                const btn = document.createElement("button")
+                btn.innerText = "Go!!"
+                btn.onclick = this.onGoClick // 1-й спосіб додати .bind(this)
+                container.appendChild(btn)
+                const div = document.createElement("div")
+                div.innerText = 'Ваші результати: '
+                this.res_span = document.createElement('span')
+                div.appendChild(this.res_span)
+                container.appendChild(div)
+            }
+        }
+
+        window.onload = function() {
+            const rulette = new Rulette()
+            rulette.render('container')
+        }
+    </script>
+    <style>
+        td {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+</body>
+
+</html>
