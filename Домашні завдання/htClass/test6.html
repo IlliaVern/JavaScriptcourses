@@ -17,13 +17,13 @@
                 this.passengers = passengers
             }
             refuel = (liters) => {
-                if (liters <= (this.fuel_tank - this.has_liters)) {
+                if ((liters+this.has_liters) <= this.fuel_tank) {
                     this.has_liters += liters
                     return true
                 } else return false
             }
             addPassengers = (people) => {
-                if (people <= (this.seats - this.passengers))
+                if ((people+this.passengers) <= this.seats)
                     this.passengers += people
                 else return false
 
