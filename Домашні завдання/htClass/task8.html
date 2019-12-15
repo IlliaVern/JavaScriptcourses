@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Задача. Розробити клас «Бронювання автомобіля» -->
+    <script>
+        class BookAuto {
+            constructor() {
+                this.oneDayRentPrice = oneDayRentPrice
+                this.tenDaysDiscount = 0.95
+            }
+            getBookingOrderPrice = () => {
+                let oneDayRentPrice = parseInt(this.oneDayRentPriceInp.value)
+                let manyDaysBook = parseInt(this.manyDaysBookInp.value)
+                let bookingOrderPrice = 0
+                if (manyDaysBook >= 0 && manyDaysBook <= 10) {
+                    this.bookingOrderPriceInp.value = manyDaysBook * oneDayRentPrice
+                } else if (manyDaysBook > 10) {
+                    this.bookingOrderPriceInp.value = 10 * oneDayRentPrice + (manyDaysBook - 10) * oneDayRentPrice *
+                        this.tenDaysDiscount
+                } else alert('Введіть правильно кількість днів')
+            }
+            render(containerId) {
+                const container = document.getElementById(containerId)
+                let div = document.createElement('div')
+                div.innerText = 'Вартість одного дня: '
+                this.oneDayRentPriceInp = document.createElement('input')
+                this.oneDayRentPriceInp.type = 'number'
+                div.appendChild(this.oneDayRentPriceInp)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                div.innerText = 'Кількість днів бронювання: '
+                this.manyDaysBookInp = document.createElement('input')
+                this.manyDaysBookInp.type = 'number'
+                div.appendChild(this.manyDaysBookInp)
+                container.appendChild(div)
+
+                const btn = document.createElement('button')
+                btn.innerText = 'Вартість бронювання'
+                btn.onclick = this.getBookingOrderPrice
+                container.appendChild(btn)
+
+                this.bookingOrderPriceInp = document.createElement('input')
+                this.bookingOrderPriceInp.type = 'number'
+                div.appendChild(this.bookingOrderPriceInp)
+                container.appendChild(div)
+            }
+        }
+
+        window.onload = function () {
+            const bookAuto = new BookAuto()
+            bookAuto.render('container')
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Задача. Розробити клас MultChecker для перевірки таблиці множення -->
+    <script>
+        class MultChecker {
+            constructor() {
+                this.rightAnswear = 0
+                this.wrongAnswear = 0
+            }
+            getRandomNum = () => {
+                const randNum = Math.floor(1 + Math.random() * 9)
+                return randNum
+            }
+            checkAnswear = () => {
+                let firstNum = parseInt(this.spanFirstNum.innerText)
+                let secondNum = parseInt(this.spanSecondNum.innerText)
+                let answearNum = parseInt(this.answearInp.value)
+                if (firstNum * secondNum == answearNum) {
+                    this.rightAnswear++
+                    this.rightAnswScoreSpan.innerText = this.rightAnswear
+                } else {
+                    this.wrongAnswear++
+                    this.wrongAnswScoreSpan.innerText = this.wrongAnswear
+                }
+                this.spanFirstNum.innerText = this.getRandomNum()
+                this.spanSecondNum.innerText = this.getRandomNum()
+                this.answearInp.value = ''
+
+
+            }
+            render(containerId) {
+                const container = document.getElementById(containerId)
+                let div = document.createElement('div')
+                let span = document.createElement('span')
+                span.innerText = 'Результат множення '
+                div.appendChild(span)
+                this.spanFirstNum = document.createElement('span')
+                this.spanFirstNum.innerText = this.getRandomNum()
+                div.appendChild(this.spanFirstNum)
+
+                span = document.createElement('span')
+                span.innerText = ' * '
+                div.appendChild(span)
+
+                this.spanSecondNum = document.createElement('span')
+                this.spanSecondNum.innerText = this.getRandomNum()
+                div.appendChild(this.spanSecondNum)
+
+                span = document.createElement('span')
+                span.innerText = ' = '
+                div.appendChild(span)
+
+                this.answearInp = document.createElement('input')
+                this.answearInp.type = 'number'
+                div.appendChild(this.answearInp)
+                container.appendChild(div)
+
+                const btn = document.createElement('button')
+                btn.innerText = 'Check'
+                btn.onclick = this.checkAnswear
+                container.appendChild(btn)
+
+                div = document.createElement('div')
+                div.innerText = 'Right answears score: '
+                this.rightAnswScoreSpan = document.createElement('span')
+                div.appendChild(this.rightAnswScoreSpan)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                div.innerText = 'Wrong answears score: '
+                this.wrongAnswScoreSpan = document.createElement('span')
+                div.appendChild(this.wrongAnswScoreSpan)
+                container.appendChild(div)
+
+
+            }
+        }
+        window.onload = function () {
+            const multChecker = new MultChecker()
+            multChecker.render('container')
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+
+</html>

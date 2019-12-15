@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Задача. Створити об’єкт «Авто».  -->
+    <script>
+        class Auto {
+            constructor(mark, fuel_tank, has_liters, seats, passengers) {
+                this.mark = mark
+                this.fuel_tank = fuel_tank
+                this.has_liters = has_liters
+                this.seats = seats
+                this.passengers = passengers
+            }
+            refuel = () => {
+                let liters = parseInt(this.litersInp.value)
+                let hasLiters = parseInt(this.has_liters.value)
+                let fuel_volume = parseInt(this.fuel_tank.value)
+                if ((liters + hasLiters) <= fuel_volume)
+                hasLiters += liters
+                return this.hasLiters
+
+            }
+
+            addPassengers = () => {
+                let people = parseInt(this.passengersInp.value)
+                let passergersInCar = parseInt(this.passengers.value)
+                let seatsInCar = parseInt(this.seats.value)
+                if ((people + passergersInCar) <= seatsInCar)
+                passergersInCar += people
+                return this.passergersInCar
+            }
+            landPassengers = () => {
+                let people = parseInt(this.landPassengersInp.value)
+                if (this.passengers.value >= people)
+                    this.passengers.value -= people
+            }
+            printNewAuto = () => {
+                // let print = document.getElementById('newAutoSpecs')
+                // print.onclick = this.
+                this.newPassengersInp.value = this.addPassengers
+            }
+
+            render(containerId) {
+                const container = document.getElementById(containerId)
+                let div = document.createElement('div')
+                let span = document.createElement('span')
+                span.innerText = 'Mark: '
+                div.appendChild(span)
+                this.markInp = document.createElement('input')
+                div.appendChild(this.markInp)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                span = document.createElement('span')
+                span.innerText = 'Fuel Tank: '
+                div.appendChild(span)
+                this.fuel_tank = document.createElement('input')
+                this.fuel_tank.type = 'number'
+                div.appendChild(this.fuel_tank)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                span = document.createElement('span')
+                span.innerText = 'Liters in fuel tank: '
+                div.appendChild(span)
+                this.has_liters = document.createElement('input')
+                this.has_liters.type = 'number'
+                div.appendChild(this.has_liters)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                span = document.createElement('span')
+                span.innerText = 'Number of seats: '
+                div.appendChild(span)
+                this.seats = document.createElement('input')
+                this.seats.type = 'number'
+                div.appendChild(this.seats)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                span = document.createElement('span')
+                span.innerText = 'Passengers in car: '
+                div.appendChild(span)
+                this.passengers = document.createElement('input')
+                this.passengers.type = 'number'
+                div.appendChild(this.passengers)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                let btn = document.createElement('button')
+                btn.innerText = 'Заправити на '
+                btn.onclick = this.refuel
+                div.appendChild(btn)
+                this.litersInp = document.createElement('input')
+                this.litersInp.type = 'number'
+                div.appendChild(this.litersInp)
+                span = document.createElement('span')
+                span.innerText = ' літрів'
+                div.appendChild(span)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                btn = document.createElement('button')
+                btn.innerText = 'Додати '
+                btn.onclick = this.addPassengers
+                div.appendChild(btn)
+                this.passengersInp = document.createElement('input')
+                this.passengersInp.type = 'number'
+                div.appendChild(this.passengersInp)
+                span = document.createElement('span')
+                span.innerText = ' пасажирів'
+                div.appendChild(span)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                btn = document.createElement('button')
+                btn.innerText = 'Висадити '
+                btn.onclick = this.landPassengers
+                div.appendChild(btn)
+                this.landPassengersInp = document.createElement('input')
+                this.landPassengersInp.type = 'number'
+                div.appendChild(this.landPassengersInp)
+                span = document.createElement('span')
+                span.innerText = ' пасажирів'
+                div.appendChild(span)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                btn = document.createElement('button')
+                btn.innerText = 'Відомості про авто'
+                btn.id = 'newAutoSpecs'
+                btn.onclick = this.printNewAuto
+                div.appendChild(btn)
+                // span = document.createElement('span')
+                // span.innerText = `Mark: ${this.markInp.value}`
+                // div.appendChild(span)
+                // span = document.createElement('span')
+                // span.innerText = `Fuel Tank: ${this.fuel_tank.value}`
+                // div.appendChild(span)
+                // span = document.createElement('span')
+                // span.innerText = `Liters in fuel tank: ${this.has_liters.value}`
+                // div.appendChild(span)
+                span = document.createElement('span')
+                span.innerText = 'Passengers in car: '
+                div.appendChild(span)
+                this.newPassengersInp = document.createElement('input')
+                this.newPassengersInp.type = 'number'
+                this.newPassengersInp.value = '0'
+                div.appendChild(this.newPassengersInp)
+
+                container.appendChild(div)
+            }
+
+        }
+        window.onload = function () {
+            let auto = new Auto()
+            auto.render('container')
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+
+</html>

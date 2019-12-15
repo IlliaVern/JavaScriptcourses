@@ -35,7 +35,6 @@
                 const shootPosition = parseInt(prompt('Enter your shoot position from 1 to 10'))
                 this.rabbit_field[shootPosition-1] == 1 ? alert("ПОПАЛ!!!") : alert("Промазал(((")
             }
-
             render(containerId) {
                 const container = document.getElementById(containerId)
                 const table = this.showRabbitField()
