@@ -10,7 +10,7 @@
     <script>
         class BookAuto {
             constructor() {
-                this.oneDayRentPrice = oneDayRentPrice
+                this.oneDayRentPrice = parseInt(this.oneDayRentPriceInp)
                 this.tenDaysDiscount = 0.95
             }
             getBookingOrderPrice = () => {
@@ -40,15 +40,17 @@
                 div.appendChild(this.manyDaysBookInp)
                 container.appendChild(div)
 
-                const btn = document.createElement('button')
+                const label = document.createElement('label')
+                let btn = document.createElement('button')
                 btn.innerText = 'Вартість бронювання'
                 btn.onclick = this.getBookingOrderPrice
-                container.appendChild(btn)
+                label.appendChild(btn)
 
                 this.bookingOrderPriceInp = document.createElement('input')
                 this.bookingOrderPriceInp.type = 'number'
-                div.appendChild(this.bookingOrderPriceInp)
-                container.appendChild(div)
+                label.appendChild(this.bookingOrderPriceInp)
+
+                container.appendChild(label)
             }
         }
 

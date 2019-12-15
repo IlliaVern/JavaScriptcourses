@@ -21,8 +21,8 @@
                 let hasLiters = parseInt(this.has_liters.value)
                 let fuel_volume = parseInt(this.fuel_tank.value)
                 if ((liters + hasLiters) <= fuel_volume)
-                hasLiters += liters
-                return this.hasLiters
+                this.has_liters.value += this.litersInp.value
+                return this.hasLiters.value
 
             }
 
@@ -31,8 +31,8 @@
                 let passergersInCar = parseInt(this.passengers.value)
                 let seatsInCar = parseInt(this.seats.value)
                 if ((people + passergersInCar) <= seatsInCar)
-                passergersInCar += people
-                return this.passergersInCar
+                this.passergersInCar.value += this.passengersInp.value
+                return this.passergersInCar.value
             }
             landPassengers = () => {
                 let people = parseInt(this.landPassengersInp.value)
