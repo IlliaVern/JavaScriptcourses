@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Final Test Task</title>
+    <script>
+        class TrainerArifmeticOperations {
+            constructor(minNum = 1, maxNum = 10, operation) {
+                this.minNum = minNum
+                this.maxNum = maxNum
+                this.operation = ['+', '-', '*', '/']
+            }
+
+            getRandomNumber = () => {
+                // return Math.floor(this.minNum + Math.random()*(this.maxNum - this.minNum + 1))
+                return Math.floor(1 + Math.random() * 10)
+
+            }
+            getRandomOperation = () => {
+                return Math.floor(Math.random() * 4)
+            }
+            getNewTask = () => {
+                this.num1 = this.getRandomNumber()
+                this.firstNumInp.value = this.num1
+
+                this.oper = this.getRandomOperation()
+                this.operationSpan.innerText = this.operation[this.oper]
+
+                this.num2 = this.getRandomNumber()
+                this.secondNumInp.value = this.num2
+            }
+            checkAnswear = () => {
+                const userAnswear = parseInt(this.userAnswInp.value)
+                const answear = this.num1 + this.oper + this.num2
+                if (answear == userAnswear)
+                    this.resultSpan.innerText = 'Ok!'
+                else this.resultSpan.innerText = 'Wrong(('
+
+
+                this.getNewTask()
+            }
+
+            render(containerId) {
+                const container = document.getElementById(containerId)
+                let div = document.createElement('div')
+                div.innerText = 'First number: '
+                this.firstNumInp = document.createElement('input')
+                this.firstNumInp.type = 'number'
+                div.appendChild(this.firstNumInp)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                div.innerText = 'Operation: '
+                this.operationSpan = document.createElement('span')
+                div.appendChild(this.operationSpan)
+                container.appendChild(div)
+
+                div = document.createElement('div')
+                div.innerText = 'Second number: '
+                this.secondNumInp = document.createElement('input')
+                this.secondNumInp.type = 'number'
+                div.appendChild(this.secondNumInp)
+                container.appendChild(div)
+
+                let hr = document.createElement('hr')
+                container.appendChild(hr)
+
+                div = document.createElement('div')
+                div.innerText = 'Your answear: '
+                this.userAnswInp = document.createElement('input')
+                this.userAnswInp.type = 'number'
+                div.appendChild(this.userAnswInp)
+                container.appendChild(div)
+
+                const btn = document.createElement('button')
+                btn.innerText = 'Check'
+                btn.onclick = this.checkAnswear
+                container.appendChild(btn)
+
+                div = document.createElement('div')
+                div.innerText = 'Result: '
+                this.resultSpan = document.createElement('span')
+                div.appendChild(this.resultSpan)
+                container.appendChild(div)
+
+                this.getNewTask()
+            }
+        }
+        window.onload = function () {
+            const arifmTrainer = new TrainerArifmeticOperations()
+            arifmTrainer.render('container')
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+
+</html>

@@ -14,8 +14,7 @@
                 this.wrongAnswear = 0
             }
             getRandomNum = () => {
-                const randNum = Math.floor(1 + Math.random() * 9)
-                return randNum
+                return Math.floor(1 + Math.random() * 9)
             }
             checkAnswear = () => {
                 let firstNum = parseInt(this.spanFirstNum.innerText)
