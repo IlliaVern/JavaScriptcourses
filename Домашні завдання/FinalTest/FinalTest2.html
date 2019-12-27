@@ -5,27 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Final Test Task</title>
+    <title>Final Test Task 2</title>
     <script>
         class TrainerArifmeticOperations {
-            constructor(minNum = 1, maxNum = 9, operation) {
+            constructor(minNum = 1, maxNum = 10) {
                 this.minNum = minNum
                 this.maxNum = maxNum
-                this.operation = ['+', '-', '*', '/']
             }
 
-            getRandomNumber = () => {
-                return Math.floor(this.minNum + Math.random()*(this.maxNum - this.minNum + 1))
+            getRandomNumber = (minNum, maxNum) => {
+                return Math.floor(this.minNum + Math.random()*(this.maxNum - this.minNum))
 
             }
             getRandomOperation = () => {
-                return Math.floor(Math.random() * 4)
+                this.operation = ['+', '-', '*', '/']
+                return this.operation[this.getRandomNumber(0, this.operation.length)]
             }
             getNewTask = () => {
                 this.num1 = parseInt(this.getRandomNumber())
                 this.firstNumInp.value = this.num1
 
-                this.operationSpan.innerText = this.operation[this.getRandomOperation()]
+                this.operation = this.getRandomOperation()
+                this.operationSpan.innerText = this.operation
+
 
                 this.num2 = parseInt(this.getRandomNumber())
                 this.secondNumInp.value = this.num2
@@ -33,7 +35,7 @@
             checkAnswear = () => {
                 const userAnswear = parseInt(this.userAnswInp.value)
                 let answear
-                switch (this.operationSpan.innerText) {
+                switch (this.operation) {
                     case '+': answear = this.num1 + this.num2
                     case '-': answear = this.num1 - this.num2
                     case '*': answear = this.num1 * this.num2
@@ -41,12 +43,12 @@
                     default:
                         break;
                 }
-                if (answear == userAnswear)
+                if (answear === userAnswear)
                     this.resultSpan.innerText = 'Ok!'
                 else this.resultSpan.innerText = 'Wrong(('
 
-                console.log(answear)
-                // this.getNewTask()
+                // console.log(answear)
+                this.getNewTask()
             }
 
             render(containerId) {
