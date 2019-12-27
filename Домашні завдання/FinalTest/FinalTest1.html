@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Форма офромлення доставки</title>
+    <script>
+        function getDeliveryPrice() {
+            let inputs = document.querySelectorAll("input[type='radio']")
+            let totalSum = parseFloat(document.getElementById('price').value)
+            if (totalSum <= 0) alert('Введіть коректну ціну товару')
+            else {
+            for (let i = 0; i < inputs.length; i++) {if (inputs[i].checked) totalSum *= inputs[i].value}
+            document.getElementById("totalSum").value = +parseFloat(totalSum).toFixed(2)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Форма офромлення доставки</h2>
+    <fieldset>
+        <legend>Вартість товару</legend>
+        <label><span>Вкажіть ціну товару </span><input type="number" id="price" value="" /></label>
+    </fieldset>
+    <fieldset>
+        <legend>Спосіб доставки</legend>
+        <label><input type="radio" name="deliveryWay" value="1.05" /><span>Пошта</span></label>
+        <label><input type="radio" name="deliveryWay" value="1.07" /><span>Нова пошта</span></label>
+        <label><input type="radio" name="deliveryWay" value="1.1" /><span>Кур'єр</span></label>
+    </fieldset>
+    <fieldset>
+        <legend>Термін доставки</legend>
+        <label><input type="radio" name="orderTerms" value="1.05" /><span>Термінова</span></label>
+        <label><input type="radio" name="orderTerms" value="1" /><span>Звичайна</span></label>
+    </fieldset>
+    <hr>
+    <input type="button" name="name" value="Вартість доставки" onclick="getDeliveryPrice()" /><br>
+    <label>Загальна вартість замовлення = <input type="number" name="name" id="totalSum" value="0" /></label>
+
+</body>
+
+</html>
