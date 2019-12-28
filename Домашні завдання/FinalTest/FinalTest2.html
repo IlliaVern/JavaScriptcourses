@@ -14,40 +14,33 @@
             }
 
             getRandomNumber = (minNum, maxNum) => {
-                return Math.floor(this.minNum + Math.random()*(this.maxNum - this.minNum))
+                return minNum + Math.floor(Math.random()*(maxNum - minNum+1))
 
             }
             getRandomOperation = () => {
-                this.operation = ['+', '-', '*', '/']
-                return this.operation[this.getRandomNumber(0, this.operation.length)]
+                let operation = ['+', '-', '*', '/']
+                return operation[this.getRandomNumber(0, operation.length-1)]
             }
             getNewTask = () => {
-                this.num1 = parseInt(this.getRandomNumber())
-                this.firstNumInp.value = this.num1
-
-                this.operation = this.getRandomOperation()
-                this.operationSpan.innerText = this.operation
-
-
-                this.num2 = parseInt(this.getRandomNumber())
-                this.secondNumInp.value = this.num2
+                this.firstNumInp.value = parseInt(this.getRandomNumber(this.minNum, this.maxNum))
+                this.operationSpan.innerText = this.getRandomOperation()
+                this.secondNumInp.value = parseInt(this.getRandomNumber(this.minNum, this.maxNum))
+                this.userAnswInp.value = ''
             }
             checkAnswear = () => {
                 const userAnswear = parseInt(this.userAnswInp.value)
-                let answear
-                switch (this.operation) {
-                    case '+': answear = this.num1 + this.num2
-                    case '-': answear = this.num1 - this.num2
-                    case '*': answear = this.num1 * this.num2
-                    case '/': answear = this.num1 / this.num2
-                    default:
-                        break;
+                let answear, num1 = parseInt(this.firstNumInp.value), num2 = parseInt(this.secondNumInp.value)
+                switch (this.operationSpan.innerText) {
+                    case '+': answear = num1 + num2; break;
+                    case '-': answear = num1 - num2; break;
+                    case '*': answear = num1 * num2; break;
+                    case '/': answear = num1 / num2; break;
+                    default: break;
                 }
-                if (answear === userAnswear)
+                if (answear == userAnswear)
                     this.resultSpan.innerText = 'Ok!'
                 else this.resultSpan.innerText = 'Wrong(('
 
-                // console.log(answear)
                 this.getNewTask()
             }
 
@@ -57,12 +50,14 @@
                 div.innerText = 'First number: '
                 this.firstNumInp = document.createElement('input')
                 this.firstNumInp.type = 'number'
+                this.firstNumInp.value = parseInt(this.getRandomNumber(this.minNum, this.maxNum))
                 div.appendChild(this.firstNumInp)
                 container.appendChild(div)
 
                 div = document.createElement('div')
                 div.innerText = 'Operation: '
                 this.operationSpan = document.createElement('span')
+                this.operationSpan.innerText = this.getRandomOperation()
                 div.appendChild(this.operationSpan)
                 container.appendChild(div)
 
@@ -70,6 +65,7 @@
                 div.innerText = 'Second number: '
                 this.secondNumInp = document.createElement('input')
                 this.secondNumInp.type = 'number'
+                this.secondNumInp.value = parseInt(this.getRandomNumber(this.minNum, this.maxNum))
                 div.appendChild(this.secondNumInp)
                 container.appendChild(div)
 
@@ -93,8 +89,6 @@
                 this.resultSpan = document.createElement('span')
                 div.appendChild(this.resultSpan)
                 container.appendChild(div)
-
-                this.getNewTask()
             }
         }
         window.onload = function () {
